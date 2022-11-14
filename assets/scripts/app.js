@@ -9,15 +9,20 @@ const ADD_MODLE_ELE = document.getElementById('add_modal');
 
 const TOGGLE_ADD_MOVIE_HANDLER = () => {
   ADD_MODLE_ELE.classList.toggle('visible');
-  TOGGLE_BACKDROP_HANDLER();
+  TOGGLE_BACKDROP();
 };
 
-const TOGGLE_BACKDROP_HANDLER = () => {
+const TOGGLE_BACKDROP = () => {
   BACKDROP_TOGGLE_ELE.classList.toggle('visible');
   console.log('back drop')
 };
-const BACKDROP_CLICK_HANDLER = () => {
-  TOGGLE_ADD_MOVIE_HANDLER();
+const BACKDROP_CLICK = () => {
+    if(ADD_MODLE_ELE.classList.contains('visible')){
+        TOGGLE_ADD_MOVIE_HANDLER();
+    }else if(DELETE_MODAL.classList.contains('visible')){
+        TOGGLE_DELETE_MODAL()
+    }
+ 
  
 };
 const CANCEL_ADD_MOVIE_HANDLER = () => {
@@ -31,7 +36,7 @@ HEADER_BUTTON_ELE.addEventListener('click', TOGGLE_ADD_MOVIE_HANDLER);
 const CANCEL_BUTTON_ELE = ADD_MODLE_ELE.querySelector('.btn.btn--passive');
 CANCEL_BUTTON_ELE.addEventListener('click', CANCEL_ADD_MOVIE_HANDLER);
 
-BACKDROP_TOGGLE_ELE.addEventListener('click', BACKDROP_CLICK_HANDLER);
+BACKDROP_TOGGLE_ELE.addEventListener('click', BACKDROP_CLICK);
 
 const ADD_MOVIE_BUTTON_ELE = ADD_MODLE_ELE.lastElementChild.lastElementChild;
 
@@ -43,11 +48,12 @@ const DELETE_MODAL = document.querySelector('#delete-modal')
 const NO_CANCEL = document.querySelectorAll('.btn--passive')[1]
 const TOGGLE_DELETE_MODAL = () =>{
     DELETE_MODAL.classList.toggle('visible')
+    TOGGLE_BACKDROP()
 }
 
 const NO_CANCEL_HANDLER = ()=>{
     TOGGLE_DELETE_MODAL()
-    TOGGLE_BACKDROP_HANDLER() 
+   
 }
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER )
 
@@ -67,7 +73,7 @@ function CLEAR_INPUT_HANDLER() {
 const REMOVE_BUTTON_HANDLER = ()=>{
   
     DELETE_MODAL.classList.toggle('visible')
-    TOGGLE_BACKDROP_HANDLER() 
+    TOGGLE_BACKDROP() 
 }
 
 const RENDER_MOVIE_HANDLER = (MOVIES) => {
