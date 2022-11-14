@@ -24,6 +24,7 @@ const BACKDROP_CLICK = () => {
     }
  
  
+    
 };
 const CANCEL_ADD_MOVIE_HANDLER = () => {
   TOGGLE_ADD_MOVIE_HANDLER();
