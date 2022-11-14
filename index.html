@@ -19,6 +19,7 @@
         <input type="text" name="image-url" id="image-url" />
         <label for="rating">Your Rating</label>
         <input
+        value=5
           type="number"
           step="1"
           max="5"
@@ -29,13 +30,13 @@
       </div>
       <div class="modal__actions">
         <button class="btn btn--passive">Cancel</button>
-        <button class="btn btn--success">Add</button>
+        <button class="btn btn--success" id="MODAL_ADD">Add</button>
       </div>
     </div>
     <div class="modal" id="delete-modal">
       <h2 class="modal__title">Are you sure?</h2>
       <p class="modal__content">
-        Are you sure you want to delete this item? This action can't be made
+        Are you sure you want to delete this item? This action can't be 
         undone!
       </p>
       <div class="modal__actions">
@@ -46,7 +47,7 @@
 
     <header>
       <h1>Favorite Movies</h1>
-      <button id="ADD_MOVIE_BUTTON">ADD MOVIE</button>
+      <button id="HEADER_BUTTON">ADD MOVIE</button>
     </header>
 
     <main>
