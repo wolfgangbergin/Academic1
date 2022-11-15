@@ -1,9 +1,27 @@
-const MOVIE_LIST_ELE = document.getElementById('movie-list');
-const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
 let starWars = { Title: 'Star Wars', imageURL: './free.png', rating: '5' };
 let wolmanJake = { Title: 'wolfman jack', imageURL: './free.png', rating: '5' };
 let  Swimming = { Title: 'Swimming', imageURL: './free.png', rating: '5' };
-const MOVIES = [starWars, wolmanJake, Swimming ];
+let   jalapeño = { Title: 'jalapeño', imageURL: './free.png', rating: '5' };
+let MOVIES = [starWars, wolmanJake, Swimming, jalapeño ];
+
+let kimELE;
+const MOVIE_LIST_ELE = document.getElementById('movie-list');
+const YES = document.querySelector('#yes')
+const YES_CLICK = ()=>{
+   let tempArr = MOVIES.filter((movie)=>{
+        
+        return movie !== kimELE
+
+    })
+    MOVIES = [...tempArr]
+    RENDER_MOVIE_HANDLER(MOVIES)
+   
+    TOGGLE_DELETE_MODAL()
+}
+
+YES.addEventListener('click', YES_CLICK)
+const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
+
 
 const ADD_MODLE_ELE = document.getElementById('add_modal');
 
@@ -14,7 +32,7 @@ const TOGGLE_ADD_MOVIE_HANDLER = () => {
 
 const TOGGLE_BACKDROP = () => {
   BACKDROP_TOGGLE_ELE.classList.toggle('visible');
-  console.log('back drop')
+  
 };
 const BACKDROP_CLICK = () => {
     if(ADD_MODLE_ELE.classList.contains('visible')){
@@ -24,7 +42,7 @@ const BACKDROP_CLICK = () => {
     }
  
  
-    
+
 };
 const CANCEL_ADD_MOVIE_HANDLER = () => {
   TOGGLE_ADD_MOVIE_HANDLER();
@@ -66,13 +84,15 @@ const TOGGLE_SECTION = () => {
 };
 
 function CLEAR_INPUT_HANDLER() {
-  MOVIE_TITLE.value = 'wolfman jack';
+  MOVIE_TITLE.value = 'Forrest Gump';
   IMAGE_URL.value = './free.png';
   RATING.value = '5';
 }
 
-const REMOVE_BUTTON_HANDLER = ()=>{
-  
+const REMOVE_BUTTON_HANDLER = (ELE)=>{
+    
+            kimELE = ELE
+    
     DELETE_MODAL.classList.toggle('visible')
     TOGGLE_BACKDROP() 
 }
@@ -82,7 +102,7 @@ const RENDER_MOVIE_HANDLER = (MOVIES) => {
 
   MOVIES.forEach((ELE) => {
     let removeButton = document.createElement('button')
-    removeButton.addEventListener('click', REMOVE_BUTTON_HANDLER);
+    removeButton.addEventListener('click', ()=>REMOVE_BUTTON_HANDLER(ELE));
     removeButton.textContent = 'Delete!'
     let listItem = document.createElement('li');
     listItem.classList.add('movie-element');
@@ -124,3 +144,4 @@ const ADD_MOVIE_HANDLER = () => {
 };
 
 ADD_MOVIE_BUTTON_ELE.addEventListener('click', () => ADD_MOVIE_HANDLER());
+RENDER_MOVIE_HANDLER(MOVIES)
