@@ -83,6 +83,8 @@ const TOGGLE_SECTION = () => {
   SECTION.style.display = 'none';
 };
 
+
+
 function CLEAR_INPUT_HANDLER() {
   MOVIE_TITLE.value = 'Forrest Gump';
   IMAGE_URL.value = './free.png';
