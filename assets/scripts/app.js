@@ -63,12 +63,12 @@ const TOGGLE_DELETE_MODAL = () => {
   TOGGLE_BACKDROP();
 };
 
+
+
 const NO_CANCEL_HANDLER = () => {
   TOGGLE_DELETE_MODAL();
 };
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
-
-
 
 const TOGGLE_SECTION = () => {
   if (MOVIES.length === 0) {
