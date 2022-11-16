@@ -1,27 +1,24 @@
 let starWars = { Title: 'Star Wars', imageURL: './free.png', rating: '5' };
 let wolmanJake = { Title: 'wolfman jack', imageURL: './free.png', rating: '5' };
-let  Swimming = { Title: 'Swimming', imageURL: './free.png', rating: '5' };
-let   jalapeño = { Title: 'jalapeño', imageURL: './free.png', rating: '5' };
-let MOVIES = [starWars, wolmanJake, Swimming, jalapeño ];
+let Swimming = { Title: 'Swimming', imageURL: './free.png', rating: '5' };
+let jalapeño = { Title: 'jalapeño', imageURL: './free.png', rating: '5' };
+let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
 
 let kimELE;
 const MOVIE_LIST_ELE = document.getElementById('movie-list');
-const YES = document.querySelector('#yes')
-const YES_CLICK = ()=>{
-   let tempArr = MOVIES.filter((movie)=>{
-        
-        return movie !== kimELE
+const YES = document.querySelector('#yes');
+const YES_CLICK = () => {
+  let tempArr = MOVIES.filter((movie) => {
+    return movie !== kimELE;
+  });
+  MOVIES = [...tempArr];
+  RENDER_MOVIE_HANDLER(MOVIES);
 
-    })
-    MOVIES = [...tempArr]
-    RENDER_MOVIE_HANDLER(MOVIES)
-   
-    TOGGLE_DELETE_MODAL()
-}
+  TOGGLE_DELETE_MODAL();
+};
 
-YES.addEventListener('click', YES_CLICK)
+YES.addEventListener('click', YES_CLICK);
 const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
-
 
 const ADD_MODLE_ELE = document.getElementById('add_modal');
 
@@ -32,17 +29,13 @@ const TOGGLE_ADD_MOVIE_HANDLER = () => {
 
 const TOGGLE_BACKDROP = () => {
   BACKDROP_TOGGLE_ELE.classList.toggle('visible');
-  
 };
 const BACKDROP_CLICK = () => {
-    if(ADD_MODLE_ELE.classList.contains('visible')){
-        TOGGLE_ADD_MOVIE_HANDLER();
-    }else if(DELETE_MODAL.classList.contains('visible')){
-        TOGGLE_DELETE_MODAL()
-    }
- 
- 
-
+  if (ADD_MODLE_ELE.classList.contains('visible')) {
+    TOGGLE_ADD_MOVIE_HANDLER();
+  } else if (DELETE_MODAL.classList.contains('visible')) {
+    TOGGLE_DELETE_MODAL();
+  }
 };
 const CANCEL_ADD_MOVIE_HANDLER = () => {
   TOGGLE_ADD_MOVIE_HANDLER();
@@ -63,18 +56,17 @@ const MOVIE_TITLE = ADD_MODLE_ELE.querySelector('[name=title]');
 const IMAGE_URL = ADD_MODLE_ELE.querySelector('[name=image-url]');
 const RATING = ADD_MODLE_ELE.querySelector('[name=rating]');
 const SECTION = document.querySelector('section');
-const DELETE_MODAL = document.querySelector('#delete-modal')
-const NO_CANCEL = document.querySelectorAll('.btn--passive')[1]
-const TOGGLE_DELETE_MODAL = () =>{
-    DELETE_MODAL.classList.toggle('visible')
-    TOGGLE_BACKDROP()
-}
+const DELETE_MODAL = document.querySelector('#delete-modal');
+const NO_CANCEL = document.querySelectorAll('.btn--passive')[1];
+const TOGGLE_DELETE_MODAL = () => {
+  DELETE_MODAL.classList.toggle('visible');
+  TOGGLE_BACKDROP();
+};
 
-const NO_CANCEL_HANDLER = ()=>{
-    TOGGLE_DELETE_MODAL()
-   
-}
-NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER )
+const NO_CANCEL_HANDLER = () => {
+  TOGGLE_DELETE_MODAL();
+};
+NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
 
 const TOGGLE_SECTION = () => {
   if (MOVIES.length === 0) {
@@ -83,39 +75,36 @@ const TOGGLE_SECTION = () => {
   SECTION.style.display = 'none';
 };
 
-
-
 function CLEAR_INPUT_HANDLER() {
   MOVIE_TITLE.value = 'Forrest Gump';
   IMAGE_URL.value = './free.png';
   RATING.value = '5';
 }
 
-const REMOVE_BUTTON_HANDLER = (ELE)=>{
-    
-            kimELE = ELE
-    
-    DELETE_MODAL.classList.toggle('visible')
-    TOGGLE_BACKDROP() 
-}
+const REMOVE_BUTTON_HANDLER = (ELE) => {
+  kimELE = ELE;
+
+  DELETE_MODAL.classList.toggle('visible');
+  TOGGLE_BACKDROP();
+};
 
 const RENDER_MOVIE_HANDLER = (MOVIES) => {
   let dF = new DocumentFragment();
 
   MOVIES.forEach((ELE) => {
-    let removeButton = document.createElement('button')
-    removeButton.addEventListener('click', ()=>REMOVE_BUTTON_HANDLER(ELE));
-    removeButton.textContent = 'Delete!'
+    let removeButton = document.createElement('button');
+    removeButton.addEventListener('click', () => REMOVE_BUTTON_HANDLER(ELE));
+    removeButton.textContent = 'Delete!';
     let listItem = document.createElement('li');
     listItem.classList.add('movie-element');
-    
+
     listItem.innerHTML = `<div >
     <p>Tittle ${ELE.Title} </p>
     <p>Rating ${ELE.rating} stars</p>
     <img src="${ELE.imageURL}" class='img movie-element__image '></img>
     
     </div>`;
-    listItem.append(removeButton)
+    listItem.append(removeButton);
     dF.append(listItem);
   });
   MOVIE_LIST_ELE.replaceChildren(dF);
@@ -146,4 +135,4 @@ const ADD_MOVIE_HANDLER = () => {
 };
 
 ADD_MOVIE_BUTTON_ELE.addEventListener('click', () => ADD_MOVIE_HANDLER());
-RENDER_MOVIE_HANDLER(MOVIES)
+RENDER_MOVIE_HANDLER(MOVIES);
