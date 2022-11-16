@@ -69,6 +69,8 @@ const NO_CANCEL_HANDLER = () => {
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
 
 
+
+
 const TOGGLE_SECTION = () => {
   if (MOVIES.length === 0) {
     SECTION.style.display = 'block';
