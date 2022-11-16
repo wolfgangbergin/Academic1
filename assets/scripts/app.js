@@ -15,6 +15,7 @@ const YES_CLICK = () => {
   RENDER_MOVIE_HANDLER(MOVIES);
 
   TOGGLE_DELETE_MODAL();
+  TOGGLE_BACKDROP();
 };
 
 YES.addEventListener('click', YES_CLICK);
@@ -24,10 +25,14 @@ const ADD_MODLE_ELE = document.getElementById('add_modal');
 
 const TOGGLE_ADD_MOVIE_HANDLER = () => {
   ADD_MODLE_ELE.classList.toggle('visible');
-  TOGGLE_BACKDROP();
+ 
 };
-
+const HEADER_BUTTON_CLICK = ()=>{
+    TOGGLE_ADD_MOVIE_HANDLER()
+    TOGGLE_BACKDROP();
+}
 const TOGGLE_BACKDROP = () => {
+    console.log('TOGGLE_BACKDROP')
   BACKDROP_TOGGLE_ELE.classList.toggle('visible');
 };
 const BACKDROP_CLICK = () => {
@@ -36,14 +41,16 @@ const BACKDROP_CLICK = () => {
   } else if (DELETE_MODAL.classList.contains('visible')) {
     TOGGLE_DELETE_MODAL();
   }
+  TOGGLE_BACKDROP();
 };
 const CANCEL_ADD_MOVIE_HANDLER = () => {
   TOGGLE_ADD_MOVIE_HANDLER();
   CLEAR_INPUT_HANDLER();
+  TOGGLE_BACKDROP();
 };
 const HEADER_BUTTON_ELE = document.body.children[3].querySelector('button');
 
-HEADER_BUTTON_ELE.addEventListener('click', TOGGLE_ADD_MOVIE_HANDLER);
+HEADER_BUTTON_ELE.addEventListener('click', HEADER_BUTTON_CLICK);
 
 const CANCEL_BUTTON_ELE = ADD_MODLE_ELE.querySelector('.btn.btn--passive');
 CANCEL_BUTTON_ELE.addEventListener('click', CANCEL_ADD_MOVIE_HANDLER);
@@ -60,13 +67,11 @@ const DELETE_MODAL = document.querySelector('#delete-modal');
 const NO_CANCEL = document.querySelectorAll('.btn--passive')[1];
 const TOGGLE_DELETE_MODAL = () => {
   DELETE_MODAL.classList.toggle('visible');
-  TOGGLE_BACKDROP();
 };
-
-
 
 const NO_CANCEL_HANDLER = () => {
   TOGGLE_DELETE_MODAL();
+  TOGGLE_BACKDROP()
 };
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
 
@@ -86,7 +91,7 @@ function CLEAR_INPUT_HANDLER() {
 const REMOVE_BUTTON_HANDLER = (ELE) => {
   kimELE = ELE;
 
-  DELETE_MODAL.classList.toggle('visible');
+  TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
 };
 
@@ -116,6 +121,7 @@ const RENDER_MOVIE_HANDLER = (MOVIES) => {
 };
 
 const ADD_MOVIE_HANDLER = () => {
+    
   let Title = MOVIE_TITLE.value;
   let imageURL = IMAGE_URL.value;
   let rating = RATING.value;
@@ -134,6 +140,7 @@ const ADD_MOVIE_HANDLER = () => {
 
   RENDER_MOVIE_HANDLER(MOVIES);
   TOGGLE_ADD_MOVIE_HANDLER();
+  TOGGLE_BACKDROP();
 };
 
 ADD_MOVIE_BUTTON_ELE.addEventListener('click', () => ADD_MOVIE_HANDLER());
