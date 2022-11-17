@@ -32,7 +32,7 @@ const HEADER_BUTTON_CLICK = ()=>{
     TOGGLE_BACKDROP();
 }
 const TOGGLE_BACKDROP = () => {
-    console.log('TOGGLE_BACKDROP')
+   
   BACKDROP_TOGGLE_ELE.classList.toggle('visible');
 };
 const BACKDROP_CLICK = () => {
@@ -88,7 +88,7 @@ function CLEAR_INPUT_HANDLER() {
   RATING.value = '5';
 }
 
-const REMOVE_BUTTON_HANDLER = (ELE) => {
+const REMOVE_BUTTON_HANDLER = (ELE, listItem) => {
   kimELE = ELE;
 
   TOGGLE_DELETE_MODAL();
@@ -99,11 +99,11 @@ const RENDER_MOVIE_HANDLER = (MOVIES) => {
   let dF = new DocumentFragment();
 
   MOVIES.forEach((ELE) => {
+      let listItem = document.createElement('li');
+      listItem.classList.add('movie-element');
     let removeButton = document.createElement('button');
-    removeButton.addEventListener('click', () => REMOVE_BUTTON_HANDLER(ELE));
+    removeButton.addEventListener('click', () => REMOVE_BUTTON_HANDLER(ELE, listItem));
     removeButton.textContent = 'Delete!';
-    let listItem = document.createElement('li');
-    listItem.classList.add('movie-element');
 
     listItem.innerHTML = `<div >
     <p>Tittle ${ELE.Title} </p>
