@@ -88,6 +88,7 @@ function CLEAR_INPUT_HANDLER() {
   RATING.value = '5';
 }
 
+
 const REMOVE_BUTTON_HANDLER = (ELE, listItem) => {
   kimELE = ELE;
 
