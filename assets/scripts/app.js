@@ -86,6 +86,8 @@ function YES_CLICK(listItem) {
   TOGGLE_BACKDROP();
 }
 
+
+
 let tempDiv = document.createElement('div');
 DELETE_MODAL.append(tempDiv);
 const REMOVE_BUTTON_HANDLER = (ELE, listItem) => {
