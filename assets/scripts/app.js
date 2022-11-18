@@ -7,32 +7,19 @@ let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
 let kimELE;
 const MOVIE_LIST_ELE = document.getElementById('movie-list');
 const YES = document.querySelector('#yes');
-const YES_CLICK = () => {
-  let tempArr = MOVIES.filter((movie) => {
-    return movie !== kimELE;
-  });
-  MOVIES = [...tempArr];
-  RENDER_MOVIE_HANDLER(MOVIES);
 
-  TOGGLE_DELETE_MODAL();
-  TOGGLE_BACKDROP();
-};
-
-YES.addEventListener('click', YES_CLICK);
 const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
 
 const ADD_MODLE_ELE = document.getElementById('add_modal');
 
 const TOGGLE_ADD_MOVIE_HANDLER = () => {
   ADD_MODLE_ELE.classList.toggle('visible');
- 
 };
-const HEADER_BUTTON_CLICK = ()=>{
-    TOGGLE_ADD_MOVIE_HANDLER()
-    TOGGLE_BACKDROP();
-}
+const HEADER_BUTTON_CLICK = () => {
+  TOGGLE_ADD_MOVIE_HANDLER();
+  TOGGLE_BACKDROP();
+};
 const TOGGLE_BACKDROP = () => {
-   
   BACKDROP_TOGGLE_ELE.classList.toggle('visible');
 };
 const BACKDROP_CLICK = () => {
@@ -71,7 +58,7 @@ const TOGGLE_DELETE_MODAL = () => {
 
 const NO_CANCEL_HANDLER = () => {
   TOGGLE_DELETE_MODAL();
-  TOGGLE_BACKDROP()
+  TOGGLE_BACKDROP();
 };
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
 
@@ -88,9 +75,30 @@ function CLEAR_INPUT_HANDLER() {
   RATING.value = '5';
 }
 
+function YES_CLICK() {
+  let tempArr = MOVIES.filter((movie) => {
+    return movie !== kimELE;
+  });
+  MOVIES = [...tempArr];
+  RENDER_MOVIE_HANDLER(MOVIES);
+  //   if (DELETE_MODAL.classList.contains('visible')){
+  //     TOGGLE_DELETE_MODAL();
+  //     TOGGLE_BACKDROP();
+  //   }
+  TOGGLE_DELETE_MODAL();
+  TOGGLE_BACKDROP();
+}
+
+let wolfTest = (ELE) => {
+  console.log(ELE);
+};
+
 const REMOVE_BUTTON_HANDLER = (ELE, listItem) => {
   kimELE = ELE;
-  listItem.remove()
+
+  YES.addEventListener('click', YES_CLICK);
+
+  // YES.addEventListener('click', YES_CLICK);
   TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
 };
@@ -99,10 +107,12 @@ const RENDER_MOVIE_HANDLER = (MOVIES) => {
   let dF = new DocumentFragment();
 
   MOVIES.forEach((ELE) => {
-      let listItem = document.createElement('li');
-      listItem.classList.add('movie-element');
+    let listItem = document.createElement('li');
+    listItem.classList.add('movie-element');
     let removeButton = document.createElement('button');
-    removeButton.addEventListener('click', () => REMOVE_BUTTON_HANDLER(ELE, listItem));
+    removeButton.addEventListener('click', () =>
+      REMOVE_BUTTON_HANDLER(ELE, listItem)
+    );
     removeButton.textContent = 'Delete!';
 
     listItem.innerHTML = `<div >
@@ -121,7 +131,6 @@ const RENDER_MOVIE_HANDLER = (MOVIES) => {
 };
 
 const ADD_MOVIE_HANDLER = () => {
-    
   let Title = MOVIE_TITLE.value;
   let imageURL = IMAGE_URL.value;
   let rating = RATING.value;
