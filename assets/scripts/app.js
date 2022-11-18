@@ -93,8 +93,6 @@ function CLEAR_INPUT_HANDLER() {
   RATING.value = '5';
 }
 
-
-
 function YES_CLICK(ELE) {
   let listItems = MOVIE_LIST_ELE.children;
   for (let li of listItems) {
