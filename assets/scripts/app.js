@@ -1,10 +1,29 @@
-let starWars = { Title: 'Star Wars', imageURL: './free.png', rating: '5' };
-let wolmanJake = { Title: 'wolfman jack', imageURL: './free.png', rating: '5' };
-let Swimming = { Title: 'Swimming', imageURL: './free.png', rating: '5' };
-let jalapeño = { Title: 'jalapeño', imageURL: './free.png', rating: '5' };
+let starWars = {
+  Title: 'Star Wars',
+  imageURL: './free.png',
+  rating: '5',
+  id: Math.random(),
+};
+let wolmanJake = {
+  Title: 'wolfman jack',
+  imageURL: './free.png',
+  rating: '5',
+  id: Math.random(),
+};
+let Swimming = {
+  Title: 'Swimming',
+  imageURL: './free.png',
+  rating: '5',
+  id: Math.random(),
+};
+let jalapeño = {
+  Title: 'jalapeño',
+  imageURL: './free.png',
+  rating: '5',
+  id: Math.random(),
+};
 let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
 
-let kimELE;
 const MOVIE_LIST_ELE = document.getElementById('movie-list');
 
 const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
@@ -74,29 +93,34 @@ function CLEAR_INPUT_HANDLER() {
   RATING.value = '5';
 }
 
-function YES_CLICK(listItem) {
+function YES_CLICK(ELE) {
+  let listItems = MOVIE_LIST_ELE.children;
+  for (let li of listItems) {
+    if (li.id == ELE.id) {
+      li.remove();
+    }
+  }
+
   let tempArr = MOVIES.filter((movie) => {
-    return movie !== kimELE;
+    return movie.id !== ELE.id;
   });
   MOVIES = [...tempArr];
 
-  //RENDER_MOVIE_HANDLER(MOVIES);
-  listItem.remove();
+  // RENDER_MOVIE_HANDLER(MOVIES);
+  //   listItem.remove();
   TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
 }
 
 let tempDiv = document.createElement('div');
 DELETE_MODAL.append(tempDiv);
-const REMOVE_BUTTON_HANDLER = (ELE, listItem) => {
+const REMOVE_BUTTON_HANDLER = (ELE) => {
   let yes = document.createElement('button');
   yes.innerText = 'yes';
   yes.id = 'wolfMan';
   tempDiv.replaceChildren(yes);
 
-  kimELE = ELE;
-
-  yes.addEventListener('click', YES_CLICK.bind(null, listItem));
+  yes.addEventListener('click', YES_CLICK.bind(null, ELE));
   // yes.addEventListener('click', YES_CLICK);
 
   TOGGLE_DELETE_MODAL();
@@ -108,6 +132,7 @@ const RENDER_MOVIE_HANDLER = (MOVIES) => {
 
   MOVIES.forEach((ELE) => {
     let listItem = document.createElement('li');
+    listItem.id = ELE.id;
     listItem.classList.add('movie-element');
     let removeButton = document.createElement('button');
     removeButton.addEventListener('click', () =>
@@ -134,6 +159,7 @@ const ADD_MOVIE_HANDLER = () => {
   let Title = MOVIE_TITLE.value;
   let imageURL = IMAGE_URL.value;
   let rating = RATING.value;
+  let id = Math.random();
 
   if (Title.trim() === '') {
     alert('must enter movie title');
@@ -143,7 +169,7 @@ const ADD_MOVIE_HANDLER = () => {
     return;
   }
 
-  const newMovie = { Title, imageURL, rating };
+  const newMovie = { Title, imageURL, rating, id };
 
   MOVIES.push(newMovie);
 
