@@ -123,8 +123,7 @@ let YES = document.getElementById('yes')
 const REMOVE_BUTTON_HANDLER = (ELE) => {
    
 YES.replaceWith(YES.cloneNode(true))
-YES = document.getElementById('yes')
-  
+  YES = document.getElementById('yes')
 
 YES.addEventListener('click', YES_CLICK.bind(null, ELE));
   // yes.addEventListener('click', YES_CLICK);
