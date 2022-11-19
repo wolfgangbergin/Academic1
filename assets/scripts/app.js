@@ -22,7 +22,8 @@ let jalapeño = {
   rating: '5',
   id: Math.random(),
 };
-let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
+//let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
+let MOVIES = [];
 
 const MOVIE_LIST_ELE = document.getElementById('movie-list');
 
@@ -81,10 +82,14 @@ const NO_CANCEL_HANDLER = () => {
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
 
 const TOGGLE_SECTION = () => {
+   
   if (MOVIES.length === 0) {
+ 
     SECTION.style.display = 'block';
+  }else if (MOVIES.length > 0){
+    SECTION.style.display = 'none';
   }
-  SECTION.style.display = 'none';
+
 };
 
 function CLEAR_INPUT_HANDLER() {
@@ -107,25 +112,21 @@ function YES_CLICK(ELE) {
   });
   MOVIES = [...tempArr];
 
-  // RENDER_MOVIE_HANDLER(MOVIES);
+  RENDER_MOVIE_HANDLER(MOVIES);
   //   listItem.remove();
   TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
 }
 
-const YES = document.getElementById('yes')
 
-
+let YES = document.getElementById('yes')
 const REMOVE_BUTTON_HANDLER = (ELE) => {
-    const YES = document.getElementById('yes')
-let tempButton = YES.cloneNode(true)
-
-YES.replaceWith(tempButton)
-
-  
+   
+YES.replaceWith(YES.cloneNode(true))
+YES = document.getElementById('yes')
   
 
-tempButton.addEventListener('click', YES_CLICK.bind(null, ELE));
+YES.addEventListener('click', YES_CLICK.bind(null, ELE));
   // yes.addEventListener('click', YES_CLICK);
 
   TOGGLE_DELETE_MODAL();
@@ -134,6 +135,7 @@ tempButton.addEventListener('click', YES_CLICK.bind(null, ELE));
 
 const RENDER_MOVIE_HANDLER = (MOVIES) => {
   let dF = new DocumentFragment();
+  
 
   MOVIES.forEach((ELE) => {
     let listItem = document.createElement('li');
