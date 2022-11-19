@@ -94,6 +94,7 @@ function CLEAR_INPUT_HANDLER() {
 }
 
 function YES_CLICK(ELE) {
+  console.log(ELE);
   let listItems = MOVIE_LIST_ELE.children;
   for (let li of listItems) {
     if (li.id == ELE.id) {
@@ -112,15 +113,11 @@ function YES_CLICK(ELE) {
   TOGGLE_BACKDROP();
 }
 
-let tempDiv = document.createElement('div');
-DELETE_MODAL.append(tempDiv);
+const YES = document.getElementById('yes');
 const REMOVE_BUTTON_HANDLER = (ELE) => {
-  let yes = document.createElement('button');
-  yes.innerText = 'yes';
-  yes.id = 'wolfMan';
-  tempDiv.replaceChildren(yes);
+  let tempWolf = YES_CLICK.bind(null, ELE);
 
-  yes.addEventListener('click', YES_CLICK.bind(null, ELE));
+  YES.addEventListener('click', tempWolf);
   // yes.addEventListener('click', YES_CLICK);
 
   TOGGLE_DELETE_MODAL();
