@@ -94,8 +94,6 @@ function CLEAR_INPUT_HANDLER() {
 }
 const YES = document.getElementById('yes');
 
-
-
 const REMOVE_BUTTON_HANDLER = (ELE) => {
   let tempWolf = YES_CLICK.bind(null, ELE);
   function YES_CLICK(ELE) {
@@ -113,7 +111,7 @@ const REMOVE_BUTTON_HANDLER = (ELE) => {
     // RENDER_MOVIE_HANDLER(MOVIES);
     TOGGLE_DELETE_MODAL();
     TOGGLE_BACKDROP();
-    YES.removeEventListener('click', tempWolf)
+    YES.removeEventListener('click', tempWolf);
   }
 
   YES.addEventListener('click', tempWolf);
