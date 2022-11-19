@@ -7,7 +7,6 @@ let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
 let kimELE;
 const MOVIE_LIST_ELE = document.getElementById('movie-list');
 
-
 const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
 
 const ADD_MODLE_ELE = document.getElementById('add_modal');
@@ -53,10 +52,8 @@ const SECTION = document.querySelector('section');
 const DELETE_MODAL = document.querySelector('#delete-modal');
 const NO_CANCEL = document.querySelectorAll('.btn--passive')[1];
 const TOGGLE_DELETE_MODAL = () => {
-    
   DELETE_MODAL.classList.toggle('visible');
 };
-
 
 const NO_CANCEL_HANDLER = () => {
   TOGGLE_DELETE_MODAL();
@@ -78,34 +75,29 @@ function CLEAR_INPUT_HANDLER() {
 }
 
 function YES_CLICK(listItem) {
-   
   let tempArr = MOVIES.filter((movie) => {
     return movie !== kimELE;
   });
   MOVIES = [...tempArr];
- 
+
   //RENDER_MOVIE_HANDLER(MOVIES);
- listItem.remove()
+  listItem.remove();
   TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
- 
 }
 
-let tempDiv = document.createElement('div')
-DELETE_MODAL.append(tempDiv)
+let tempDiv = document.createElement('div');
+DELETE_MODAL.append(tempDiv);
 const REMOVE_BUTTON_HANDLER = (ELE, listItem) => {
- 
-    let yes = document.createElement('button');
-    yes.innerText = 'yes'
-    yes.id = 'wolfMan'
-    tempDiv.replaceChildren(yes)
-  
-    
+  let yes = document.createElement('button');
+  yes.innerText = 'yes';
+  yes.id = 'wolfMan';
+  tempDiv.replaceChildren(yes);
+
   kimELE = ELE;
- 
+
   yes.addEventListener('click', YES_CLICK.bind(null, listItem));
   // yes.addEventListener('click', YES_CLICK);
-
 
   TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
