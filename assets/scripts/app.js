@@ -57,6 +57,7 @@ const TOGGLE_DELETE_MODAL = () => {
   DELETE_MODAL.classList.toggle('visible');
 };
 
+
 const NO_CANCEL_HANDLER = () => {
   TOGGLE_DELETE_MODAL();
   TOGGLE_BACKDROP();
