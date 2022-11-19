@@ -114,6 +114,8 @@ const REMOVE_BUTTON_HANDLER = (ELE) => {
     YES.removeEventListener('click', tempWolf);
   }
 
+  
+
   YES.addEventListener('click', tempWolf);
   // yes.addEventListener('click', YES_CLICK);
 
