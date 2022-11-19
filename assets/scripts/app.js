@@ -92,30 +92,29 @@ function CLEAR_INPUT_HANDLER() {
   IMAGE_URL.value = './free.png';
   RATING.value = '5';
 }
-
-function YES_CLICK(ELE) {
-  console.log(ELE);
-  let listItems = MOVIE_LIST_ELE.children;
-  for (let li of listItems) {
-    if (li.id == ELE.id) {
-      li.remove();
-    }
-  }
-
-  let tempArr = MOVIES.filter((movie) => {
-    return movie.id !== ELE.id;
-  });
-  MOVIES = [...tempArr];
-
-  // RENDER_MOVIE_HANDLER(MOVIES);
-  //   listItem.remove();
-  TOGGLE_DELETE_MODAL();
-  TOGGLE_BACKDROP();
-}
-
 const YES = document.getElementById('yes');
+
+
+
 const REMOVE_BUTTON_HANDLER = (ELE) => {
   let tempWolf = YES_CLICK.bind(null, ELE);
+  function YES_CLICK(ELE) {
+    console.log(ELE);
+    let listItems = MOVIE_LIST_ELE.children;
+    for (let li of listItems) {
+      if (li.id == ELE.id) {
+        li.remove();
+      }
+    }
+    let tempArr = MOVIES.filter((movie) => {
+      return movie.id !== ELE.id;
+    });
+    MOVIES = [...tempArr];
+    // RENDER_MOVIE_HANDLER(MOVIES);
+    TOGGLE_DELETE_MODAL();
+    TOGGLE_BACKDROP();
+    YES.removeEventListener('click', tempWolf)
+  }
 
   YES.addEventListener('click', tempWolf);
   // yes.addEventListener('click', YES_CLICK);
