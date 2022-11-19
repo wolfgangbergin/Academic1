@@ -94,7 +94,7 @@ function CLEAR_INPUT_HANDLER() {
 }
 
 function YES_CLICK(ELE) {
-    console.log(ELE)
+    
   let listItems = MOVIE_LIST_ELE.children;
   for (let li of listItems) {
     if (li.id == ELE.id) {
@@ -115,12 +115,17 @@ function YES_CLICK(ELE) {
 
 const YES = document.getElementById('yes')
 
+
 const REMOVE_BUTTON_HANDLER = (ELE) => {
-    let tempWolf = YES_CLICK.bind(null, ELE)
+    const YES = document.getElementById('yes')
+let tempButton = YES.cloneNode(true)
+
+YES.replaceWith(tempButton)
+
   
   
 
-    YES.addEventListener('click', tempWolf);
+tempButton.addEventListener('click', YES_CLICK.bind(null, ELE));
   // yes.addEventListener('click', YES_CLICK);
 
   TOGGLE_DELETE_MODAL();
