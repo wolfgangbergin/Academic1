@@ -82,14 +82,11 @@ const NO_CANCEL_HANDLER = () => {
 NO_CANCEL.addEventListener('click', NO_CANCEL_HANDLER);
 
 const TOGGLE_SECTION = () => {
-   
   if (MOVIES.length === 0) {
- 
     SECTION.style.display = 'block';
-  }else if (MOVIES.length > 0){
+  } else if (MOVIES.length > 0) {
     SECTION.style.display = 'none';
   }
-
 };
 
 function CLEAR_INPUT_HANDLER() {
@@ -99,7 +96,6 @@ function CLEAR_INPUT_HANDLER() {
 }
 
 function YES_CLICK(ELE) {
-    
   let listItems = MOVIE_LIST_ELE.children;
   for (let li of listItems) {
     if (li.id == ELE.id) {
@@ -118,14 +114,12 @@ function YES_CLICK(ELE) {
   TOGGLE_BACKDROP();
 }
 
-
-let YES = document.getElementById('yes')
+let YES = document.getElementById('yes');
 const REMOVE_BUTTON_HANDLER = (ELE) => {
-   
-YES.replaceWith(YES.cloneNode(true))
-  YES = document.getElementById('yes')
+  YES.replaceWith(YES.cloneNode(true));
+  YES = document.getElementById('yes');
 
-YES.addEventListener('click', YES_CLICK.bind(null, ELE));
+  YES.addEventListener('click', YES_CLICK.bind(null, ELE));
   // yes.addEventListener('click', YES_CLICK);
 
   TOGGLE_DELETE_MODAL();
@@ -134,7 +128,6 @@ YES.addEventListener('click', YES_CLICK.bind(null, ELE));
 
 const RENDER_MOVIE_HANDLER = (MOVIES) => {
   let dF = new DocumentFragment();
-  
 
   MOVIES.forEach((ELE) => {
     let listItem = document.createElement('li');
@@ -184,5 +177,38 @@ const ADD_MOVIE_HANDLER = () => {
   TOGGLE_BACKDROP();
 };
 
-ADD_MOVIE_BUTTON_ELE.addEventListener('click', () => ADD_MOVIE_HANDLER());
+ADD_MOVIE_BUTTON_ELE.addEventListener('click', function testName() {
+  ADD_MOVIE_HANDLER();
+});
+
 RENDER_MOVIE_HANDLER(MOVIES);
+
+var increaseAAAA;
+
+const wolfTemp = (() => {
+  const arr1 = [];
+  const TEST = `TEST`
+
+  for (let AAA = 0; AAA < 5; AAA++) {
+    const AAAA = AAA;
+    increaseAAAA = () => {
+      AAAA++;
+    };
+    arr1.push((() => {
+      const attribute = AAA;
+      console.log(`${AAAA} ${attribute} ${TEST}`);
+    }));
+  }
+ 
+
+  return arr1;
+})();
+
+const fs = wolfTemp;
+ 
+//increaseAAAA()
+
+
+console.dir(fs[0]);
+
+fs.forEach((func) => func());

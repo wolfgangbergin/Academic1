@@ -176,8 +176,6 @@ input:focus {
   overflow: hidden;
   object-fit: cover;
   width: 3%;
-
-
 }
 
 .movie-element__image img {
@@ -191,9 +189,8 @@ input:focus {
   padding: 1rem;
 }
 
-.wolfImg{
+.wolfImg {
   border: green 3px dotted;
- 
 }
 
 .card {
@@ -242,6 +239,13 @@ input:focus {
 #add-modal .modal__content {
   display: flex;
   flex-direction: column;
+}
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
 
 @media (min-width: 768px) {
