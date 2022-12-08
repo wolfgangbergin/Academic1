@@ -234,3 +234,256 @@ console.dir(fs[0]);
 fs.forEach((func) => func());
 
 //___________________________________________________
+var increaseAAAA;
+
+const wolfTemp = (() => {
+  const arr1 = [];
+  const TEST = `TEST`
+
+  for (let AAA = 0; AAA < 5; AAA++) {
+    const AAAA = AAA;
+    increaseAAAA = () => {
+      AAAA++;
+    };
+    arr1.push((() => {
+      const attribute = AAA;
+      console.log(`${AAAA} ${attribute} ${TEST}`);
+    }));
+  }
+ 
+
+  return arr1;
+})();
+
+const fs = wolfTemp;
+ 
+//increaseAAAA()
+
+
+console.dir(fs[0]);
+
+fs.forEach((func) => func());
+
+//______________________________________________________________________________________
+let makeGreeting = (lang) => {
+    return function (fName, lName) {
+      lang === `en` ? console.log(`hello ${fName} ${lName}`) : null;
+      lang === `es` ? console.log(`hole ${fName} ${lName}`) : null;
+  
+    };
+  };
+  
+  
+  let greetEnglish = makeGreeting('en')
+  console.dir(greetEnglish)
+  greetEnglish('wolfgang', `bergin`)
+  
+  
+  let greetSpanish = makeGreeting('es')
+  console.dir(greetSpanish)
+  greetSpanish('wolfgang', `bergin`)
+  
+  let tempWolf = makeGreeting('en')
+  
+  console.log(makeGreeting('en') == makeGreeting('en'))
+  console.log(makeGreeting === makeGreeting)
+  
+  //______________________________________________________________________________________
+
+const hiLater = () => {
+    const HI = 'hi';
+    setTimeout(
+      (wolfTemp = () => {
+        console.log(HI);
+      }),
+      5000
+    );
+    console.dir(wolfTemp);
+  };
+  
+  hiLater();
+
+//___________________________________________________
+
+let kim = {age: 22};
+const hiLater = (param1) => {
+
+  param1(kim)
+
+  
+};
+
+hiLater((param2)=>{param2.age ++});
+hiLater((param2)=>{param2.age ++});
+
+hiLater((param2)=>{param2.age--});
+hiLater((param2)=>{param2.age--});
+hiLater((param2)=>{param2.age--});
+
+
+console.dir(kim.age);
+
+  //______________________________________________________________________________________
+  function calcAge(birthYear) {
+    const age = 2037 - birthYear;
+  
+    function printAge() {
+      let output = `${AAA}, You are ${age}, born in ${birthYear}`;
+      console.log(output);
+  
+      if (birthYear >= 1981 && birthYear <= 1996) {
+        const AAA = 'kim';
+        const str = `Oh, and you're a millenal, ${AAA}`;
+        var millennial = true;
+        console.log(str);
+        function add(a, b) {
+          return a + b;
+        }
+       output = 'New Output';
+      }
+      console.log(millennial);
+      console.log(output); 
+    }
+    //console.log( add(3, 4))
+  
+    printAge();
+    return age;
+  }
+  
+  const AAA = 'wolfMan';
+  
+  calcAge(1991);
+  //______________________________________________________________________________________
+//______________________________________________________________________________________
+
+// console.log(wolf);
+//  console.log(age)
+//  console.log(AAA)
+// const AAA = 'AAA';
+
+// let age = 'age';
+
+// var wolf = 'wolfTemp';
+
+//______________________________________________________________________________________
+
+// function addDecl(a, b) {
+//   return a + b;
+// }
+// var addExpr = function (a, b) {
+//   return a + b;
+// };
+
+// var addArrow = (a, b) => a + b;
+
+// console.log(addDecl(2,3))
+// console.log(addExpr(2,3))
+// console.log(addArrow(2,3))
+//______________________________________________________________________________________
+
+// if(!numProducts) addDecl()
+// var numProducts = 10;
+
+// function addDecl(a, b) {
+//   console.log(`all Products deleted!`)
+// }
+//______________________________________________________________________________________
+
+// class wolfTemp extends Object {
+//   constructor(props) {
+//     super(props);
+//     this.age = props.age;
+//     this.testFunc = function(){
+//       (() =>{
+//         console.log(this);
+//     } )()
+//     };
+//   }
+// }
+
+// let jobob = new wolfTemp({ age: 52 });
+// jobob.car = 'ford';
+// let kim = { car: 'dodge' };
+// kim.testFunc = jobob.testFunc
+
+//  jobob.testFunc();
+// kim.testFunc();
+
+//______________________________________________________________________________________
+// let micTemp = { age: 99 }
+// console.log(this)
+// let wolfTemp = function(){
+//   console.log(this)
+// }
+// wolfTemp.call(micTemp)
+// let kimTemp = ()=>{
+//   console.log(this)
+// }
+// kimTemp()
+//______________________________________________________________________________________
+// var AAA = 'AAA';
+
+// let wolfTemp = {
+//   this: 47,
+//   tempFunc: function () {
+//     (() => {
+//       console.log(this);
+//     }).call();
+//   },
+// };
+// wolfTemp.tempFunc();
+//______________________________________________________________________________________
+// let tempWolf = ()=>{
+//   console.log(this)
+// }
+
+// let kim = {age: 22}
+
+// kim.f = function(){
+//   console.log(this)
+//   tempWolf()} ;
+
+// kim.f()
+
+//______________________________________________________________________________________
+class wolfTemp extends Object {
+    constructor(props) {
+      super(props);
+      this.age = props.age;
+      this.testFunc = function(){
+        (() =>{
+          console.log(this);
+      } )()
+      };
+    }
+  }
+  
+  let jobob = new wolfTemp({ age: 52 });
+  jobob.car = 'ford';
+  let kim = { car: 'dodge' };
+  kim.testFunc = jobob.testFunc
+  
+   jobob.testFunc();
+  kim.testFunc();
+
+  //______________________________________________________________________________________
+
+
+var ABB = function(){
+  
+    console.log(this)
+    let ABC = ()=>{
+      console.log(this )
+    }
+    ABC()
+  
+  if(true){
+  
+  
+  }
+  
+  }
+  
+  let AAAcar = 'AAAcar'
+  
+  ABB.call(ABB)

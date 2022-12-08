@@ -1,20 +1,18 @@
-const age = 50
-const car = `ford`
+'use strict'
+class creatRoom {
+  constructor(props){
 
-const OBJ1  = {name: 'kim', age}
+    this.table = `${props} table`;
+   
+  }
+ cleanTable = function(param1){
+    console.log(`cleaning ${this.table} using ${param1}`)
+  }
 
-
-
-
-function ADD(param1, param2){
-param2 = ` Dodge`
-  param1.age = param1.age + 1 
-  
 }
 
-ADD(OBJ1, car)
-console.dir()
+let josRoom = new creatRoom('jo')
+let edsRoom = new creatRoom('ed')
 
-console.dir(OBJ1)
-console.dir(car)
-
+josRoom.cleanTable('soap')
+edsRoom.cleanTable('soap')

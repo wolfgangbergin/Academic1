@@ -1,20 +1,25 @@
-const flight = `F1234`;
-
-const wolfman = {
-  name: 'wolfman',
-  passport: 16865,
-};
-
-const checkIn = (flightNum, passenger) => {
-  flightNum = `F999`;
-  passenger.name = `Mr.` + passenger;
-
-  passenger.passport === 16865 ? console.log('success'):console.log(` terrorist`)
-};
-
-checkIn(flight, wolfman);
+'use strict'
 
 
-const newPassport = (person)=>{
-    person.passport = Math.trunc(Math.random() * 10000000)
+this.firstName = 'kim'
+
+
+this.cleanTable = function(param1){
+    let banana = this
+    
+    function wolfFunc(){
+        return `1 cleaning ${banana.firstName}'s table with ${param1}`
+    }
+
+   return wolfFunc()
 }
+
+this.cleanTable.jobob = function(param1){
+    console.log(this)
+
+    return `1 cleaning ${this.firstName}'s table with ${param1}` 
+}
+
+ console.log(this.cleanTable.jobob.call(this, 'soap'))
+//console.log(this.cleanTable('soap'))
+

@@ -1,30 +1,33 @@
-let starWars = {
+'use strict';
+
+const starWars = {
   Title: 'Star Wars',
   imageURL: './free.png',
   rating: '5',
   id: Math.random(),
 };
-let wolmanJake = {
+
+const wolmanJake = {
   Title: 'wolfman jack',
   imageURL: './free.png',
   rating: '5',
   id: Math.random(),
 };
-let Swimming = {
+const Swimming = {
   Title: 'Swimming',
   imageURL: './free.png',
   rating: '5',
   id: Math.random(),
 };
-let jalapeño = {
+const jalapeño = {
   Title: 'jalapeño',
   imageURL: './free.png',
   rating: '5',
   id: Math.random(),
 };
-//let MOVIES = [starWars, wolmanJake, Swimming, jalapeño];
-let MOVIES = [];
 
+let MOVIES = [];
+let YES = document.getElementById('yes');
 const MOVIE_LIST_ELE = document.getElementById('movie-list');
 
 const BACKDROP_TOGGLE_ELE = document.querySelector('#backdrop');
@@ -114,7 +117,6 @@ function YES_CLICK(ELE) {
   TOGGLE_BACKDROP();
 }
 
-let YES = document.getElementById('yes');
 const REMOVE_BUTTON_HANDLER = (ELE) => {
   YES.replaceWith(YES.cloneNode(true));
   YES = document.getElementById('yes');
@@ -178,37 +180,62 @@ const ADD_MOVIE_HANDLER = () => {
 };
 
 ADD_MOVIE_BUTTON_ELE.addEventListener('click', function testName() {
+  
   ADD_MOVIE_HANDLER();
 });
 
 RENDER_MOVIE_HANDLER(MOVIES);
 
-var increaseAAAA;
+//______________________________________________________________________________________
 
-const wolfTemp = (() => {
-  const arr1 = [];
-  const TEST = `TEST`
 
-  for (let AAA = 0; AAA < 5; AAA++) {
-    const AAAA = AAA;
-    increaseAAAA = () => {
-      AAAA++;
-    };
-    arr1.push((() => {
-      const attribute = AAA;
-      console.log(`${AAAA} ${attribute} ${TEST}`);
-    }));
-  }
+
+
+this.table = 'AaaTable'
+
+
+
+// let claenCar = function(param1){
+
+//   const innerFunc1 = function(){
+//     console.log(`cleaning ${this.table} using ${param1}`)
+//   }.bind(this)
+//   const innerFunc2 = () =>{
+//     console.log(`cleaning ${this.table} using ${param1}`)
+//   }
  
-
-  return arr1;
-})();
-
-const fs = wolfTemp;
- 
-//increaseAAAA()
+  
+//   // innerFunc1()
+//   // innerFunc2()
+//  }
 
 
-console.dir(fs[0]);
+this.garage = {
+ table: 'garage table',
+}
 
-fs.forEach((func) => func());
+
+let kimsRoom = {
+ table: 'kims table',
+
+}
+
+
+let creatRoom = function(name){
+  this.table = `${name}'s table`
+}
+let cleanTable = function(param1){
+  console.log(`cleaning ${this.table} using ${param1}`)
+}
+
+creatRoom.prototype.cleanTable = cleanTable
+
+
+let edsRoom = new creatRoom('ed')
+
+
+edsRoom.cleanTable('soap')
+let josRoom = new creatRoom('jo') 
+
+//______________________________________________________________________________________
+
