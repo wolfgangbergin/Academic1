@@ -180,62 +180,46 @@ const ADD_MOVIE_HANDLER = () => {
 };
 
 ADD_MOVIE_BUTTON_ELE.addEventListener('click', function testName() {
-  
   ADD_MOVIE_HANDLER();
 });
 
 RENDER_MOVIE_HANDLER(MOVIES);
 
 //______________________________________________________________________________________
-
-
-
-
-this.table = 'AaaTable'
-
-
-
-// let claenCar = function(param1){
-
-//   const innerFunc1 = function(){
-//     console.log(`cleaning ${this.table} using ${param1}`)
-//   }.bind(this)
-//   const innerFunc2 = () =>{
-//     console.log(`cleaning ${this.table} using ${param1}`)
-//   }
- 
-  
-//   // innerFunc1()
-//   // innerFunc2()
-//  }
-
-
-this.garage = {
- table: 'garage table',
+var firstName = 'kim313';
+{
+  let banana = 'banana313';
+  var wolfMan = {
+    firstName: 'wolfMan',
+    year: 1881,
+    calcAge: function () {
+      let wolfTemp = () => {
+        if (this.year >= 1981 && this.year <= 1996){
+          return ` and you are a millennial! `;
+        }else {return null}
+         
+      };
+      console.log(`${2037 - this.year} ${banana} ${wolfTemp() || ''}`);
+    },
+    greet: () => {
+      console.log(`hay ${this.firstName}  ${banana} `);
+    },
+  };
 }
 
-
-let kimsRoom = {
- table: 'kims table',
-
-}
-
-
-let creatRoom = function(name){
-  this.table = `${name}'s table`
-}
-let cleanTable = function(param1){
-  console.log(`cleaning ${this.table} using ${param1}`)
-}
-
-creatRoom.prototype.cleanTable = cleanTable
-
-
-let edsRoom = new creatRoom('ed')
-
-
-edsRoom.cleanTable('soap')
-let josRoom = new creatRoom('jo') 
+wolfMan.calcAge();
 
 //______________________________________________________________________________________
 
+let jojo = {
+  firstName: 'jojo',
+  year: 2036,
+};
+jojo.calcAge = wolfMan.calcAge;
+
+// jojo.calcAge()
+
+function wolfTest(){
+  console.log(this)
+}
+// wolfTest()
