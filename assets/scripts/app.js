@@ -186,40 +186,189 @@ ADD_MOVIE_BUTTON_ELE.addEventListener('click', function testName() {
 RENDER_MOVIE_HANDLER(MOVIES);
 
 //______________________________________________________________________________________
-var firstName = 'kim313';
-{
-  let banana = 'banana313';
-  var wolfMan = {
-    firstName: 'wolfMan',
-    year: 1881,
-    calcAge: function () {
-      let wolfTemp = () => {
-        if (this.year >= 1981 && this.year <= 1996){
-          return ` and you are a millennial! `;
-        }else {return null}
-         
-      };
-      console.log(`${2037 - this.year} ${banana} ${wolfTemp() || ''}`);
+
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// Data needed for first part of the section
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', undefined],
+
+  starterMenu: [
+    'Focaccia',
+    'Bruschetta',
+    'Garlic Bread',
+    'Caprese Salad',
+    undefined,
+  ],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  order: function (mainInd, staterInd, categoriesInd) {
+    return [
+      this.mainMenu[mainInd],
+      this.starterMenu[staterInd],
+      this.categories[categoriesInd],
+    ];
+  },
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 23,
     },
-    greet: () => {
-      console.log(`hay ${this.firstName}  ${banana} `);
+    fri: {
+      open: 11,
+      close: 23,
     },
-  };
-}
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+  orderWolf: function (props) {
+    let tempArr = [];
 
-wolfMan.calcAge();
+    for (const day in props) {
+      const { open, close } = props[day];
+      tempArr.push(open);
+      tempArr.push(close);
+    }
+    return tempArr;
+  },
+  orderDelivery: function ({
+    address,
+    mainIndex,
+    starterIndex,
+    time = starterIndex ?? 'when it"s ready',
+  }) {
+    console.log(time);
+    console.log(address);
+    console.log(mainIndex);
+    console.log(starterIndex);
+  },
+  orderPasta: function (AA, ...rest) {
+    console.log(AA);
+    console.log(rest);
+    // console.log(...arguments)
+  },
 
-//______________________________________________________________________________________
+  orderWolf: function (param1, param2, param3, param4, param5) {
+    let kimTemp =
+      param1 ?? ((param2 && param3) || param4 || ('banana' && param5)) ?? 777;
+    console.log(
+      param1 ?? ((param2 && param3) || param4 || ('banana' && param5)) ?? 777
+    );
+  },
+  orderPizza: function (param1, ...rest) {
+    let temp = '';
+    rest.forEach((i) => {
+      temp += ` and ${i}`;
+    });
 
-let jojo = {
-  firstName: 'jojo',
-  year: 2036,
+    console.log(`ordeing pizza with ${param1}${temp}!`);
+  },
 };
-jojo.calcAge = wolfMan.calcAge;
 
-// jojo.calcAge()
+// restaurant.orderPizza && restaurant.orderPizza('cheese', 'mushrooms', 'sausage',  'Bacon', 'pineapple')
 
-function wolfTest(){
-  console.log(this)
-}
-// wolfTest()
+let tempWolf = function (price, tax, description) {
+  tax = tax ?? 0.05;
+  description = description ?? `default item`;
+  const total = price * (1 + tax);
+  console.log(`${description} with tax: $${total}`);
+};
+
+tempWolf(100, 0, '');
+// console.log(3 || 'wolf')
+// console.log(''||'wolf')
+// console.log(true||0)
+// console.log(undefined||null)
+// console.log(undefined||null||0||NaN||false||''||null||'wolf')
+
+// console.log(0 || false || undefined || '' || 'banana');
+// console.log(0 && 'banana' && 7777 && 313 && true);
+// console.log(null ?? undefined ?? restaurant.kim ?? restaurant.wolf ?? 'banana');
+
+// console.log(true && 'banana' && 7777 && 313 && restaurant.wolf &&'wolf');
+
+// const letterArr = ['a', 'b', 'c', 'd'];
+// restaurant.orderPizza(undefined, 'wolf', false, false, null);
+
+// const newArr = [1,2,3, ...tempArr]
+
+// const [ ...others] = [1,2,3, ...tempArr]
+// let [pizza, Pasta, Risotto, ...banana ] = [...restaurant.mainMenu, ...restaurant.starterMenu,]
+// console.log(pizza,  Pasta, Risotto, banana)
+// console.log( banana)
+// sat,
+// let { sat, ...weekDays} = restaurant.openingHours
+
+// console.log( sat,)
+// console.log( weekDays)
+//  restaurant.orderPasta(...letterArr, ...newArr)
+
+// const wolfMan = 'wolfMan'
+
+// const newMenu = [...restaurant.mainMenu, 'wolfMan', ...tempArr]
+
+// const newResteurant = {firstYear:1994, ...restaurant, ...wolfMan}
+
+// console.log(newResteurant)
+// console.log(restaurant)
+
+// const newArr = [4,5,6, ...tempArr]
+// let arr = [1,2,3,4]
+// let copy = Object.create(restaurant)
+// console.log(copy)
+
+// restaurant.orderDelivery({
+//  time: undefined,
+//   address: '612 miner',
+//   mainIndex: 2,
+//   starterIndex: null,
+// });
+
+// console.log(restaurant.orderWolf(restaurant.openingHours))
+
+// let { openingHours: hours, name, categories: categoriesWolf } = restaurant;
+// console.log(hours);
+// let {menu = 'wolfTES',starterMenu: starter = []} = restaurant
+// console.log(starter)
+// console.log(menu)
+// const {banana = 'banana', categories: styles = []} =restaurant
+
+// console.log(banana)
+// console.log(styles)
+
+//: {thu:{open, close}, fri, sat}
+
+//  let { openingHours, name, categories: categoriesWolf } = restaurant;
+
+//  let {thu:{open: o, close: c}, fri, sat} = openingHours
+
+//  console.log(o,  c);
+
+// const kim = { firstName: 'kim313', lastName: 'price', age: 22 };
+
+// const kim2 = Object.create(kim, {});
+
+// const kim3 = Object.create(kim2, {
+//   job:{
+//     configurable:true,
+//     writable:true,
+//     enumerable:true,
+//     value: 'roofer'
+
+//   },
+//   Hobbies:{
+//     configurable:true,
+//     writable:true,
+//     enumerable:true,
+//     value:'computers'
+//   }
+// });
+
+// console.log(kim3.Hobbies);

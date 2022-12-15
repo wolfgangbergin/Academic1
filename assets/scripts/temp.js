@@ -487,3 +487,59 @@ var ABB = function(){
   let AAAcar = 'AAAcar'
   
   ABB.call(ABB)
+
+
+  //______________________________________________________________________________________
+var firstName = 'kim313';
+{
+  let banana = 'banana313';
+  var wolfMan = {
+    firstName: 'wolfMan',
+    year: 1981,
+    calcAge: function () {
+     
+      let wolfTemp = ()  =>{
+        if (this.year >= 1981 && this.year <= 1996){
+          return ` and you are a millennial! `;
+        }else {return null}
+         
+      };
+      console.log(`${2037 - this.year} ${banana} ${wolfTemp() || ''}`);
+    },
+    greet: () => {
+      console.log(`hay ${this.firstName}  ${banana} `);
+    },
+  };
+}
+
+// wolfMan.calcAge();
+
+//______________________________________________________________________________________
+
+let jojo = {
+  firstName: 'jojo',
+  year: 2036,
+};
+jojo.calcAge = wolfMan.calcAge;
+
+// jojo.calcAge()
+
+function wolfTest(){
+  console.log(this)
+}
+// wolfTest()
+//______________________________________________________________________________________
+
+
+var addExpr = function (...rest) {
+  console.log(rest)
+  let temp = [...arguments]
+  return rest.reduce((total, number)=>{ return total + number}, 0)
+ 
+};
+
+
+
+
+console.log(addExpr(2,3,4,5,6 ,7,2,3,4,5,6 ,7))
+
