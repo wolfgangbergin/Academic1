@@ -1,76 +1,87 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
-// Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 99,
-    },
-    fri: {
-      open: 11,
-      close: 99,
-      wolfMan: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 88,
-    },
-  },
-  orderPizza: function (param1, param2, param3, param4, param5) {
-  
-    console.log(
-      'kimTemp'
-    );
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
   },
 };
-restaurant.orderPizza()
 
-// restaurant.mainMenu.push(restaurant.openingHours);
+//______________________________________________________________________________________
+let tempNumber = 0;
+const wolfFunc9 = function (param1) {
+  const characters1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-// let [, , , { thu, fri, sat }] = restaurant.mainMenu;
+  let tempArr = [];
 
-// let {open: O, close: C} = fri;
-// console.log(O,  C)
+  for (let i = 0; i < param1; i++) {
+    let tempF = Math.floor(i / characters1.length);
+    tempArr.push(
+      `Seat: ${characters1.charAt(tempF)}${characters1.charAt(i - 26 * tempF)}`
+    );
+  }
 
-// console.log(open, close, styles );
-// [styles, close, open, ] = [open, close, styles];
-// console.log(open, close, styles);
+  return tempArr;
+};
 
-// let [AAA, BBB, CCC] = restaurant.mainMenu;
-// console.log(AAA, BBB, CCC);
-// [CCC, BBB, AAA] = [AAA, BBB, CCC];
-// console.log(AAA, BBB, CCC);
+const airPlaneSeats = wolfFunc9(56);
 
-// function tempJo1({...param1}){
-//   console.log(param1)
-//   }
-// function tempJo2(...param1){
-//   let wolfTemp = param1[0]
+//for (const [key ,Seat ]of airPlaneSeats.entries()) l(key, Seat);
 
-//   let {age, ...rest} = wolfTemp
+const isWindowSeat = (seat, airPlane) => {
+  let index = airPlane.indexOf(seat);
+  let formula = index ;
+  switch (formula) {
+    case 0:
+      l(`${seat} is a left side window seat! `);
+      break;
+      case 1:
+      l(`${seat} is a left side aisle seat! `);
+      break;
+      case 2:
+      l(`${seat} is a right side aisle seat! `);
+      break;
+    case 3:
+      l(`${seat} is a right side window seat! `);
+      break;
+  }
+};
 
-//   console.log(rest);
-//   console.log(age);
-
-//   }
-// const APPLE = 'apple'
-// let kim = { fName: 'kimbobo', lName: 'price', age: 90, address: '612 miner' };
-// const obj2 = { AA: 'aa', BB: 'bb', CC: 'cc' };
-
-// const arr = ['aa','bb','cc']
-
-// let {fName, ...rest}   = kim
-
-//  tempJo1(fName, )
-// tempJo2(kim)
+isWindowSeat(`Seat: AA`, airPlaneSeats);
+isWindowSeat(`Seat: AB`, airPlaneSeats);
+isWindowSeat(`Seat: AC`, airPlaneSeats);
+isWindowSeat(`Seat: AD`, airPlaneSeats);

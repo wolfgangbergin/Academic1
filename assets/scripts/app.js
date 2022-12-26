@@ -187,188 +187,194 @@ RENDER_MOVIE_HANDLER(MOVIES);
 
 //______________________________________________________________________________________
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const AAAkimTest = 'AAAkimTest';
+let jobob = { aa: 'AA', bb: 'BB' };
+let mick;
 
-// Data needed for first part of the section
+function wolfFunc4(param1) {
+  console.log('wolfFunc4Ran');
+  return param1;
+}
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 99,
+  },
+  fri: {
+    open: 11,
+    close: 88,
+    wolfMan: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 77,
+  },
+  sun: {
+    banana: 'banana',
+    apple: 'apple',
+  },
+};
+
 const restaurant = {
+  AAAkimTest,
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', undefined],
-
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
   starterMenu: [
+    'Focaccia',
     'Focaccia',
     'Bruschetta',
     'Garlic Bread',
     'Caprese Salad',
-    undefined,
+    'Garlic Bread',
+    'Garlic Bread',
   ],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  openingHours,
 
-  order: function (mainInd, staterInd, categoriesInd) {
-    return [
-      this.mainMenu[mainInd],
-      this.starterMenu[staterInd],
-      this.categories[categoriesInd],
-    ];
-  },
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 23,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-  orderWolf: function (props) {
-    let tempArr = [];
-
-    for (const day in props) {
-      const { open, close } = props[day];
-      tempArr.push(open);
-      tempArr.push(close);
+  orderPizza(...items) {
+    function tempFunc(rest) {
+      let tempItems = ``;
+      for (const test of rest) {
+        tempItems += ` ${test}`;
+      }
+      return tempItems;
     }
-    return tempArr;
-  },
-  orderDelivery: function ({
-    address,
-    mainIndex,
-    starterIndex,
-    time = starterIndex ?? 'when it"s ready',
-  }) {
-    console.log(time);
-    console.log(address);
-    console.log(mainIndex);
-    console.log(starterIndex);
-  },
-  orderPasta: function (AA, ...rest) {
-    console.log(AA);
-    console.log(rest);
-    // console.log(...arguments)
-  },
+    let message = ` ordering pizza with${tempFunc(items)}!`;
 
-  orderWolf: function (param1, param2, param3, param4, param5) {
-    let kimTemp =
-      param1 ?? ((param2 && param3) || param4 || ('banana' && param5)) ?? 777;
-    console.log(
-      param1 ?? ((param2 && param3) || param4 || ('banana' && param5)) ?? 777
-    );
-  },
-  orderPizza: function (param1, ...rest) {
-    let temp = '';
-    rest.forEach((i) => {
-      temp += ` and ${i}`;
-    });
-
-    console.log(`ordeing pizza with ${param1}${temp}!`);
+    return message;
   },
 };
 
-// restaurant.orderPizza && restaurant.orderPizza('cheese', 'mushrooms', 'sausage',  'Bacon', 'pineapple')
+//______________________________________________________________________________________
 
-let tempWolf = function (price, tax, description) {
-  tax = tax ?? 0.05;
-  description = description ?? `default item`;
-  const total = price * (1 + tax);
-  console.log(`${description} with tax: $${total}`);
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 };
 
-tempWolf(100, 0, '');
-// console.log(3 || 'wolf')
-// console.log(''||'wolf')
-// console.log(true||0)
-// console.log(undefined||null)
-// console.log(undefined||null||0||NaN||false||''||null||'wolf')
+// l(game.scored.slice(-1))
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+let airline1 = 'Crackhead airlines Detroit';
+let airline2 = airline1;
 
-// console.log(0 || false || undefined || '' || 'banana');
-// console.log(0 && 'banana' && 7777 && 313 && true);
-// console.log(null ?? undefined ?? restaurant.kim ?? restaurant.wolf ?? 'banana');
+let plane = 'A320';
 
-// console.log(true && 'banana' && 7777 && 313 && restaurant.wolf &&'wolf');
 
-// const letterArr = ['a', 'b', 'c', 'd'];
-// restaurant.orderPizza(undefined, 'wolf', false, false, null);
 
-// const newArr = [1,2,3, ...tempArr]
+// const correctName = function (param1) {
+//   let temp1 = param1.toLowerCase();
 
-// const [ ...others] = [1,2,3, ...tempArr]
-// let [pizza, Pasta, Risotto, ...banana ] = [...restaurant.mainMenu, ...restaurant.starterMenu,]
-// console.log(pizza,  Pasta, Risotto, banana)
-// console.log( banana)
-// sat,
-// let { sat, ...weekDays} = restaurant.openingHours
+//   let temp2 = temp1[0].toUpperCase();
 
-// console.log( sat,)
-// console.log( weekDays)
-//  restaurant.orderPasta(...letterArr, ...newArr)
+//   return temp2 + temp1.slice(1);
+// };
 
-// const wolfMan = 'wolfMan'
 
-// const newMenu = [...restaurant.mainMenu, 'wolfMan', ...tempArr]
+// l(correctName(`kIm`))
 
-// const newResteurant = {firstYear:1994, ...restaurant, ...wolfMan}
+//______________________________________________________________________________________
 
-// console.log(newResteurant)
-// console.log(restaurant)
+// const badEmail = '                    Wolf  Gang@yaHoo.Com   \n'
+// const correctEmail = (param1, )=>{
+//  return param1.toLocaleLowerCase().trim().replace(/ /g, "")
 
-// const newArr = [4,5,6, ...tempArr]
-// let arr = [1,2,3,4]
-// let copy = Object.create(restaurant)
-// console.log(copy)
+// }
 
-// restaurant.orderDelivery({
-//  time: undefined,
-//   address: '612 miner',
-//   mainIndex: 2,
-//   starterIndex: null,
-// });
+// l(correctEmail('   kIm  @ Gmail.com \n', ))
+//______________________________________________________________________________________
 
-// console.log(restaurant.orderWolf(restaurant.openingHours))
+// const priceGBP = '288,97£'
 
-// let { openingHours: hours, name, categories: categoriesWolf } = restaurant;
-// console.log(hours);
-// let {menu = 'wolfTES',starterMenu: starter = []} = restaurant
-// console.log(starter)
-// console.log(menu)
-// const {banana = 'banana', categories: styles = []} =restaurant
+// const priceUSD = priceGBP.replace('£', '$').replace(',','.')
+// l(priceUSD)
+//______________________________________________________________________________________
 
-// console.log(banana)
-// console.log(styles)
 
-//: {thu:{open, close}, fri, sat}
+// const Message = ` all passengers come to boarding door 23. Boarding door 23!`
+// l(Message.replace('door', 'gate'))
+// l(Message.replace(/door/g, 'gate'))
+//______________________________________________________________________________________
+// const plain = 'Airbus A320neo'
 
-//  let { openingHours, name, categories: categoriesWolf } = restaurant;
+// // l(plain.includes('neo'))
+// // l(plain.startsWith('Airbus'))
+ 
 
-//  let {thu:{open: o, close: c}, fri, sat} = openingHours
+// l(plain.startsWith('Airbus') && plain.endsWith('neo') )
 
-//  console.log(o,  c);
+//______________________________________________________________________________________
 
-// const kim = { firstName: 'kim313', lastName: 'price', age: 22 };
+const checkBaggage = function(param1){
 
-// const kim2 = Object.create(kim, {});
+return param1.includes('explosives')
+};
 
-// const kim3 = Object.create(kim2, {
-//   job:{
-//     configurable:true,
-//     writable:true,
-//     enumerable:true,
-//     value: 'roofer'
 
-//   },
-//   Hobbies:{
-//     configurable:true,
-//     writable:true,
-//     enumerable:true,
-//     value:'computers'
-//   }
-// });
 
-// console.log(kim3.Hobbies);
+
+
+l(checkBaggage('some normal stuff and some explosives'))
+l(checkBaggage('I have a laptop, some food and a pocket knife'))
+l(checkBaggage('I have a laptop, some food and a pocket knife'))
+l(checkBaggage('I have a laptop, some food and a pocket knife'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
