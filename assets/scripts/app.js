@@ -184,197 +184,36 @@ ADD_MOVIE_BUTTON_ELE.addEventListener('click', function testName() {
 });
 
 RENDER_MOVIE_HANDLER(MOVIES);
-
 //______________________________________________________________________________________
 
-const AAAkimTest = 'AAAkimTest';
-let jobob = { aa: 'AA', bb: 'BB' };
-let mick;
+// String Methods Practice
 
-function wolfFunc4(param1) {
-  console.log('wolfFunc4Ran');
-  return param1;
-}
-const openingHours = {
-  thu: {
-    open: 12,
-    close: 99,
-  },
-  fri: {
-    open: 11,
-    close: 88,
-    wolfMan: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
-  },
-  sat: {
-    open: 0, // Open 24 hours
-    close: 77,
-  },
-  sun: {
-    banana: 'banana',
-    apple: 'apple',
-  },
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const wolfFunc15 = function (param1) {
+  let tempArr = param1.split('+');
+
+  for (let value of tempArr) {
+
+    value = value.replaceAll('_', ' ').replaceAll(';', ' ').replaceAll(':', 'h');
+
+    let temp12 = `(${value.slice(-5)})`;
+
+    const temp10 = value.slice(0, -5) + temp12;
+
+    let temp9 = (temp10.includes('Delayed') && '😞 ' + temp10) || temp10;
+
+    let [temp8] = temp9.match(/[a-z]{3}\d+\s[a-z]{3}\d+/g);
+
+    temp8 = temp8.toUpperCase().replaceAll(/\s/g, ' to ').replaceAll(/\d/g, '');
+
+    l(temp9.replaceAll(/[a-z]{3}\d+\s[a-z]{3}\d+/g, temp8).padStart(45, ' '));
+  }
 };
-
-const restaurant = {
-  AAAkimTest,
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
-  starterMenu: [
-    'Focaccia',
-    'Focaccia',
-    'Bruschetta',
-    'Garlic Bread',
-    'Caprese Salad',
-    'Garlic Bread',
-    'Garlic Bread',
-  ],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours,
-
-  orderPizza(...items) {
-    function tempFunc(rest) {
-      let tempItems = ``;
-      for (const test of rest) {
-        tempItems += ` ${test}`;
-      }
-      return tempItems;
-    }
-    let message = ` ordering pizza with${tempFunc(items)}!`;
-
-    return message;
-  },
-};
-
-//______________________________________________________________________________________
-
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
-
-// l(game.scored.slice(-1))
-//______________________________________________________________________________________
-//______________________________________________________________________________________
-//______________________________________________________________________________________
-let airline1 = 'Crackhead airlines Detroit';
-let airline2 = airline1;
-
-let plane = 'A320';
-
-
-
-// const correctName = function (param1) {
-//   let temp1 = param1.toLowerCase();
-
-//   let temp2 = temp1[0].toUpperCase();
-
-//   return temp2 + temp1.slice(1);
-// };
-
-
-// l(correctName(`kIm`))
-
-//______________________________________________________________________________________
-
-// const badEmail = '                    Wolf  Gang@yaHoo.Com   \n'
-// const correctEmail = (param1, )=>{
-//  return param1.toLocaleLowerCase().trim().replace(/ /g, "")
-
-// }
-
-// l(correctEmail('   kIm  @ Gmail.com \n', ))
-//______________________________________________________________________________________
-
-// const priceGBP = '288,97£'
-
-// const priceUSD = priceGBP.replace('£', '$').replace(',','.')
-// l(priceUSD)
-//______________________________________________________________________________________
-
-
-// const Message = ` all passengers come to boarding door 23. Boarding door 23!`
-// l(Message.replace('door', 'gate'))
-// l(Message.replace(/door/g, 'gate'))
-//______________________________________________________________________________________
-// const plain = 'Airbus A320neo'
-
-// // l(plain.includes('neo'))
-// // l(plain.startsWith('Airbus'))
- 
-
-// l(plain.startsWith('Airbus') && plain.endsWith('neo') )
-
-//______________________________________________________________________________________
-
-const checkBaggage = function(param1){
-
-return param1.includes('explosives')
-};
-
-
-
-
-
-l(checkBaggage('some normal stuff and some explosives'))
-l(checkBaggage('I have a laptop, some food and a pocket knife'))
-l(checkBaggage('I have a laptop, some food and a pocket knife'))
-l(checkBaggage('I have a laptop, some food and a pocket knife'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+wolfFunc15(flights);

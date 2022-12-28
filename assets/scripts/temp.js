@@ -246,27 +246,25 @@ var increaseAAAA;
 
 const wolfTemp = (() => {
   const arr1 = [];
-  const TEST = `TEST`
+  const TEST = `TEST`;
 
   for (let AAA = 0; AAA < 5; AAA++) {
     const AAAA = AAA;
     increaseAAAA = () => {
       AAAA++;
     };
-    arr1.push((() => {
+    arr1.push(() => {
       const attribute = AAA;
       console.log(`${AAAA} ${attribute} ${TEST}`);
-    }));
+    });
   }
- 
 
   return arr1;
 })();
 
 const fs = wolfTemp;
- 
-//increaseAAAA()
 
+//increaseAAAA()
 
 console.dir(fs[0]);
 
@@ -274,94 +272,97 @@ fs.forEach((func) => func());
 
 //______________________________________________________________________________________
 let makeGreeting = (lang) => {
-    return function (fName, lName) {
-      lang === `en` ? console.log(`hello ${fName} ${lName}`) : null;
-      lang === `es` ? console.log(`hole ${fName} ${lName}`) : null;
-  
-    };
+  return function (fName, lName) {
+    lang === `en` ? console.log(`hello ${fName} ${lName}`) : null;
+    lang === `es` ? console.log(`hole ${fName} ${lName}`) : null;
   };
-  
-  
-  let greetEnglish = makeGreeting('en')
-  console.dir(greetEnglish)
-  greetEnglish('wolfgang', `bergin`)
-  
-  
-  let greetSpanish = makeGreeting('es')
-  console.dir(greetSpanish)
-  greetSpanish('wolfgang', `bergin`)
-  
-  let tempWolf = makeGreeting('en')
-  
-  console.log(makeGreeting('en') == makeGreeting('en'))
-  console.log(makeGreeting === makeGreeting)
-  
-  //______________________________________________________________________________________
+};
+
+let greetEnglish = makeGreeting('en');
+console.dir(greetEnglish);
+greetEnglish('wolfgang', `bergin`);
+
+let greetSpanish = makeGreeting('es');
+console.dir(greetSpanish);
+greetSpanish('wolfgang', `bergin`);
+
+let tempWolf = makeGreeting('en');
+
+console.log(makeGreeting('en') == makeGreeting('en'));
+console.log(makeGreeting === makeGreeting);
+
+//______________________________________________________________________________________
 
 const hiLater = () => {
-    const HI = 'hi';
-    setTimeout(
-      (wolfTemp = () => {
-        console.log(HI);
-      }),
-      5000
-    );
-    console.dir(wolfTemp);
-  };
-  
-  hiLater();
+  const HI = 'hi';
+  setTimeout(
+    (wolfTemp = () => {
+      console.log(HI);
+    }),
+    5000
+  );
+  console.dir(wolfTemp);
+};
+
+hiLater();
 
 //___________________________________________________
 
-let kim = {age: 22};
+let kim = { age: 22 };
 const hiLater = (param1) => {
-
-  param1(kim)
-
-  
+  param1(kim);
 };
 
-hiLater((param2)=>{param2.age ++});
-hiLater((param2)=>{param2.age ++});
+hiLater((param2) => {
+  param2.age++;
+});
+hiLater((param2) => {
+  param2.age++;
+});
 
-hiLater((param2)=>{param2.age--});
-hiLater((param2)=>{param2.age--});
-hiLater((param2)=>{param2.age--});
-
+hiLater((param2) => {
+  param2.age--;
+});
+hiLater((param2) => {
+  param2.age--;
+});
+hiLater((param2) => {
+  param2.age--;
+});
 
 console.dir(kim.age);
 
-  //______________________________________________________________________________________
-  function calcAge(birthYear) {
-    const age = 2037 - birthYear;
-  
-    function printAge() {
-      let output = `${AAA}, You are ${age}, born in ${birthYear}`;
-      console.log(output);
-  
-      if (birthYear >= 1981 && birthYear <= 1996) {
-        const AAA = 'kim';
-        const str = `Oh, and you're a millenal, ${AAA}`;
-        var millennial = true;
-        console.log(str);
-        function add(a, b) {
-          return a + b;
-        }
-       output = 'New Output';
+//______________________________________________________________________________________
+function calcAge(birthYear) {
+  const age = 2037 - birthYear;
+
+  function printAge() {
+    let output = `${AAA}, You are ${age}, born in ${birthYear}`;
+    console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      const AAA = 'kim';
+      const str = `Oh, and you're a millenal, ${AAA}`;
+      var millennial = true;
+      console.log(str);
+      function add(a, b) {
+        return a + b;
       }
-      console.log(millennial);
-      console.log(output); 
+      output = 'New Output';
     }
-    //console.log( add(3, 4))
-  
-    printAge();
-    return age;
+    console.log(millennial);
+    console.log(output);
   }
-  
-  const AAA = 'wolfMan';
-  
-  calcAge(1991);
-  //______________________________________________________________________________________
+  //console.log( add(3, 4))
+
+  printAge();
+  return age;
+}
+
+const AAA = 'wolfMan';
+
+calcAge(1991);
+//______________________________________________________________________________________
 //______________________________________________________________________________________
 
 // console.log(wolf);
@@ -455,49 +456,43 @@ console.dir(kim.age);
 
 //______________________________________________________________________________________
 class wolfTemp extends Object {
-    constructor(props) {
-      super(props);
-      this.age = props.age;
-      this.testFunc = function(){
-        (() =>{
-          console.log(this);
-      } )()
-      };
-    }
+  constructor(props) {
+    super(props);
+    this.age = props.age;
+    this.testFunc = function () {
+      (() => {
+        console.log(this);
+      })();
+    };
   }
-  
-  let jobob = new wolfTemp({ age: 52 });
-  jobob.car = 'ford';
-  let kim = { car: 'dodge' };
-  kim.testFunc = jobob.testFunc
-  
-   jobob.testFunc();
-  kim.testFunc();
+}
 
-  //______________________________________________________________________________________
+let jobob = new wolfTemp({ age: 52 });
+jobob.car = 'ford';
+let kim = { car: 'dodge' };
+kim.testFunc = jobob.testFunc;
 
+jobob.testFunc();
+kim.testFunc();
 
-var ABB = function(){
-  
-    console.log(this)
-    let ABC = ()=>{
-      console.log(this )
-    }
-    ABC()
-  
-  if(true){
-  
-  
+//______________________________________________________________________________________
+
+var ABB = function () {
+  console.log(this);
+  let ABC = () => {
+    console.log(this);
+  };
+  ABC();
+
+  if (true) {
   }
-  
-  }
-  
-  let AAAcar = 'AAAcar'
-  
-  ABB.call(ABB)
+};
 
+let AAAcar = 'AAAcar';
 
-  //______________________________________________________________________________________
+ABB.call(ABB);
+
+//______________________________________________________________________________________
 var firstName = 'kim313';
 {
   let banana = 'banana313';
@@ -505,12 +500,12 @@ var firstName = 'kim313';
     firstName: 'wolfMan',
     year: 1981,
     calcAge: function () {
-     
-      let wolfTemp = ()  =>{
-        if (this.year >= 1981 && this.year <= 1996){
+      let wolfTemp = () => {
+        if (this.year >= 1981 && this.year <= 1996) {
           return ` and you are a millennial! `;
-        }else {return null}
-         
+        } else {
+          return null;
+        }
       };
       console.log(`${2037 - this.year} ${banana} ${wolfTemp() || ''}`);
     },
@@ -532,26 +527,21 @@ jojo.calcAge = wolfMan.calcAge;
 
 // jojo.calcAge()
 
-function wolfTest(){
-  console.log(this)
+function wolfTest() {
+  console.log(this);
 }
 // wolfTest()
 //______________________________________________________________________________________
 
-
 var addExpr = function (...rest) {
-  console.log(rest)
-  let temp = [...arguments]
-  return rest.reduce((total, number)=>{ return total + number}, 0)
- 
+  console.log(rest);
+  let temp = [...arguments];
+  return rest.reduce((total, number) => {
+    return total + number;
+  }, 0);
 };
 
-
-
-
-console.log(addExpr(2,3,4,5,6 ,7,2,3,4,5,6 ,7))
-
-
+console.log(addExpr(2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7));
 
 // Data needed for a later exercise
 const flights =
@@ -697,32 +687,31 @@ const allPlayers = [...players1, ...players2];
 let players1Final = [...players1, ...joBob];
 
 function printGoals(...restPlayers) {
-   console.log(...restPlayers)
+  console.log(...restPlayers);
 }
- printGoals(...scored, `And the fanle score: ${score}`, );
-
+printGoals(...scored, `And the fanle score: ${score}`);
 
 // team1 < team2  && console.log('team1 will win!')
 // team1 > team2  && console.log('team2 will win!')
 // team1 === team2  && console.log('it will be a draw!')
 //______________________________________________________________________________________
 
-let wolfFunc3 = (day, temp)=>{
-  temp === 'closed' && console.log(`On ${day} we are ${temp}`)
-  if (temp === 0){
-    console.log(`on ${day}, we open 24 Houres`) 
-    return
-  } 
- 
-  temp === 'closed' || console.log(`on ${day}, we open at ${temp}`) 
-}
+let wolfFunc3 = (day, temp) => {
+  temp === 'closed' && console.log(`On ${day} we are ${temp}`);
+  if (temp === 0) {
+    console.log(`on ${day}, we open 24 Houres`);
+    return;
+  }
+
+  temp === 'closed' || console.log(`on ${day}, we open at ${temp}`);
+};
 
 for (const day of weekdays) {
   let temp = restaurant.openingHours[day]?.open ?? 'closed';
-  wolfFunc3(day, temp)
+  wolfFunc3(day, temp);
 }
 //______________________________________________________________________________________
-'use strict';
+('use strict');
 
 const starWars = {
   Title: 'Star Wars',
@@ -942,13 +931,12 @@ const restaurant = {
 
   orderPizza(...items) {
     function tempFunc(rest) {
-      let tempItems = ``
+      let tempItems = ``;
       for (const test of rest) {
-       
-        tempItems += ` ${ test}`
+        tempItems += ` ${test}`;
       }
-      return tempItems
-    };
+      return tempItems;
+    }
     let message = ` ordering pizza with${tempFunc(items)}!`;
     console.log(message);
     return message;
@@ -965,8 +953,6 @@ restaurant.orderPizza?.('cheese', 'mushrooms', 'Bacon');
 //   bison: 0,
 //   Zebra: 0,
 // };
-
-
 
 // for(const key in tempObj){
 //   let temp = beasts.indexOf(key)
@@ -985,9 +971,7 @@ restaurant.orderPizza?.('cheese', 'mushrooms', 'Bacon');
 
 // let [, , , , , , [,,,,,{house:{rooms:{bedRooms:[mich]}}}]] = game.scored;
 
-
 // console.log(mich);
-
 
 // for (const [day, { open, close }] of Object.entries(openingHours)) {
 //   open &&
@@ -999,7 +983,6 @@ restaurant.orderPizza?.('cheese', 'mushrooms', 'Bacon');
 //   open ||
 //     (open === 0 && console.log(`On ${day}, we open 24 Houres! `));
 // }
-
 
 const game = {
   team1: 'Bayern Munich',
@@ -1065,23 +1048,16 @@ const game = {
 let scorers = {};
 
 for (const player of game.scored) {
-
-
   scorers[player] ? ++scorers[player] : (scorers[player] = 1);
 
+  !scorers[player] ? (scorers[player] ??= 1) : ++scorers[player];
 
-
-   !scorers[player] ? scorers[player] ??= 1 : ++scorers[player];
-  
   (!scorers[player] && (scorers[player] ??= 1)) || ++scorers[player];
 
-   (scorers[player] && ++scorers[player]) || (scorers[player] = 1);
-
-  
+  (scorers[player] && ++scorers[player]) || (scorers[player] = 1);
 }
 
 console.log(scorers);
-
 
 //______________________________________________________________________________________
 // const kim1 = {
@@ -1139,12 +1115,11 @@ console.log(scorers);
 //   [false, 'wrong try again :-('],
 // ];
 
-
 // const q = new Map(qArr);
 
 // let wolfFunc9 = function (param1, param2) {
 //    this.set(param1, param2);
- 
+
 // }.bind(q);
 
 // q.set('kimFunc9', wolfFunc9);
@@ -1155,11 +1130,7 @@ console.log(scorers);
 
 //  q.kimFunc9('attribute', {name: 'attribute'});
 
-
-
 // d(q);
-
-
 
 // console.log([...q])
 // console.log([...q.entries()])
@@ -1176,7 +1147,6 @@ console.log(scorers);
 
 //___________________________________________________
 
-
 //______________________________________________________________________________________
 
 // const kim1 = {
@@ -1192,10 +1162,6 @@ console.log(scorers);
 //   return this;
 // }
 
-
-
-
-
 // const qArr = [
 //   ['question', 'what is the best programming language in the world?'],
 //   [1, 'C'],
@@ -1204,28 +1170,24 @@ console.log(scorers);
 //   ['correct', 3],
 //   [true, 'correct :-)'],
 //   [false, 'wrong try again :-('],
- 
+
 // ];
 
 // const q = new Map(qArr);
 
-
-
 // q.set('kimFunc9', function (param1,) {
 
 //   if( this.has(param1)){
-//     return this.get(param1) 
+//     return this.get(param1)
 //   }
 //  l(`not found`)
 // }.bind(q));
 
 // q.set('attribute',function(param1){
-//   alert(this.get(param1)) 
+//   alert(this.get(param1))
 //   }.bind(q))
 
 // let kimFunc9 = q.get('kimFunc9');
-
-
 
 // kimFunc9('attribute')('question')
 // kimFunc9('attribute')(3)
@@ -1266,18 +1228,12 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-
 //  l([...new Set(gameEvents.values())])
 
 //  l(gameEvents.delete(64))
 //  l(gameEvents.get(64))
 
-
-
- 
-
 // l(`An event happened, on average, every ${[...gameEvents.keys()].pop()  / gameEvents.size } minutes`)
- 
 
 for (const [min, event] of gameEvents.entries()) {
   // l(`[${min <= 45?`first` : 'second'} half] ${min}:  ${event} `);
@@ -1383,3 +1339,491 @@ isWindowSeat(`Seat: AL`, airPlaneSeats);
 isWindowSeat(`Seat: AM`, airPlaneSeats);
 isWindowSeat(`Seat: Ao`, airPlaneSeats);
 //______________________________________________________________________________________
+//______________________________________________________________________________________
+
+const AAAkimTest = 'AAAkimTest';
+let jobob = { aa: 'AA', bb: 'BB' };
+let mick;
+
+function wolfFunc4(param1) {
+  console.log('wolfFunc4Ran');
+  return param1;
+}
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 99,
+  },
+  fri: {
+    open: 11,
+    close: 88,
+    wolfMan: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 77,
+  },
+  sun: {
+    banana: 'banana',
+    apple: 'apple',
+  },
+};
+
+const restaurant = {
+  AAAkimTest,
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic', 'kimBo'],
+  starterMenu: [
+    'Focaccia',
+    'Focaccia',
+    'Bruschetta',
+    'Garlic Bread',
+    'Caprese Salad',
+    'Garlic Bread',
+    'Garlic Bread',
+  ],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  openingHours,
+
+  orderPizza(...items) {
+    function tempFunc(rest) {
+      let tempItems = ``;
+      for (const test of rest) {
+        tempItems += ` ${test}`;
+      }
+      return tempItems;
+    }
+    let message = ` ordering pizza with${tempFunc(items)}!`;
+
+    return message;
+  },
+};
+
+//______________________________________________________________________________________
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// l(game.scored.slice(-1))
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+let airline1 = 'Crackhead airlines Detroit';
+let airline2 = airline1;
+
+let plane = 'A320';
+
+// const correctName = function (param1) {
+//   let temp1 = param1.toLowerCase();
+
+//   let temp2 = temp1[0].toUpperCase();
+
+//   return temp2 + temp1.slice(1);
+// };
+
+// l(correctName(`kIm`))
+
+//______________________________________________________________________________________
+
+// const badEmail = '                    Wolf  Gang@yaHoo.Com   \n'
+// const correctEmail = (param1, )=>{
+//  return param1.toLocaleLowerCase().trim().replace(/ /g, "")
+
+// }
+
+// l(correctEmail('   kIm  @ Gmail.com \n', ))
+//______________________________________________________________________________________
+
+// const priceGBP = '288,97£'
+
+// const priceUSD = priceGBP.replace('£', '$').replace(',','.')
+// l(priceUSD)
+//______________________________________________________________________________________
+
+// const Message = ` all passengers come to boarding door 23. Boarding door 23!`
+// l(Message.replace('door', 'gate'))
+// l(Message.replace(/door/g, 'gate'))
+//______________________________________________________________________________________
+// const plain = 'Airbus A320neo'
+
+// // l(plain.includes('neo'))
+// // l(plain.startsWith('Airbus'))
+
+// l(plain.startsWith('Airbus') && plain.endsWith('neo') )
+
+//______________________________________________________________________________________
+
+// const checkBaggage = function (param1) {
+//   const baggage = param1.toLowerCase();
+//   (baggage.includes('knife') &&
+//     console.log('baggage includes knife call security!')) ||
+//     (baggage.includes('explosives') &&
+//       console.log('baggage includes explosives call security!')) ||
+//     (baggage.includes('gun') &&
+//       console.log('baggage includes gun call security!')) ||
+//     (!baggage.includes('gun') &&
+//       !baggage.includes('explosives') &&
+//       !baggage.includes('knife') &&
+//       l('ALL SET :-)'));
+// };
+
+// checkBaggage('some normal stuff and some explosives');
+// checkBaggage('I have a laptop, some food and a pocket Knife');
+// checkBaggage('Socks and a camera');
+// checkBaggage('Some snacks and a gun for protection');
+
+//______________________________________________________________________________________
+//  let wolfFunc10 = function(param1){
+//    let temp1 = param1.toLowerCase()
+//    let temp2 = temp1[0].toUpperCase() + temp1.slice(1)
+//  return temp2
+//  };
+
+//   l(wolfFunc10(`kimBO`))
+//______________________________________________________________________________________
+// const eMail = `             Wolf\$Gan%G BergI$n @yA$hoo .Co$$$$$m  \n`;
+
+// const wolfFunc11 = function (param1) {
+//   const temp1 = param1
+//     .toLowerCase()
+//     .trimStart()
+//     .trimEnd()
+//     .replace(/ +/g, '')
+//     .replace(/\$+/g, '')
+//     .replace(/\%+/g, '');
+
+//   return temp1;
+// };
+
+// l(wolfFunc11(eMail));
+//______________________________________________________________________________________
+// const price = '22%9,9@';
+// const newPrice = `$${price.replace(/\%/g, '.').replace(/\@/g, '').replace(/\,/g, '')}`
+// l(newPrice)
+
+//______________________________________________________________________________________
+// const Announcement = ` The plane is about to crash!  The plane is about Crash and burn!`
+//   .toLowerCase()
+//   .replace(/crash/g, 'have a non-normal landing')
+//   .replace(/!/g, ' :-)')
+//   .replaceAll(`and burn`, 'and everything will be fine')
+
+// l(Announcement);
+//______________________________________________________________________________________
+
+//  const Announcement = ` The plane is about to crash!  The plane is about Crash and burn!`.toLowerCase()
+
+//  l(Announcement.includes('crash!'))
+//  l(Announcement.includes('burn'))
+//  l(Announcement.startsWith(' The'))
+//  l(Announcement.startsWith(' the'))
+//  l(Announcement.endsWith('d burn!'))
+
+// Announcement.includes('about to crash!') && Announcement.endsWith('burn!') && l(':-(')
+
+//______________________________________________________________________________________
+
+// const checkBaggage = function (param1) {
+//   const baggage = param1.toLowerCase();
+//   baggage.includes('knife') ?
+//     console.log('baggage includes knife call security!') :
+//     baggage.includes('explosives') ?
+//       console.log('baggage includes explosives call security!') :
+//     baggage.includes('gun') ?
+//       console.log('baggage includes gun call security!') :
+//       baggage.endsWith('bomb') ?
+//       console.log('baggage includes bomb call security!') :
+//       l('ALL SET :-)');
+// };
+
+// checkBaggage('some normal stuff and some explosives');
+// checkBaggage('I have a laptop, some food and a pocket Knife');
+// checkBaggage('Some snacks and a gun for protection');
+// checkBaggage(' I have a bomb');
+// checkBaggage('Socks and a camera');
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+
+const checkBaggage = function (param1) {
+  const baggage = param1.toLowerCase();
+  let tempFunc = (param1, param2) => {
+    l(param1);
+    if (param1.includes(param2.toLowerCase())) {
+      return param1.includes(param2.toLowerCase());
+    }
+  };
+  switch (true) {
+    case tempFunc(baggage, 'explosives'):
+      console.log('call security1!');
+      break;
+    case tempFunc(baggage, 'pocket Knife'):
+      console.log('call security2!');
+      break;
+    case tempFunc(baggage, 'gun'):
+      console.log('call security3!');
+      break;
+    case tempFunc(baggage, 'bomb'):
+      console.log('call security4!');
+      break;
+    case tempFunc(baggage, 'Socks'):
+      console.log('have a nice day5!');
+      break;
+    default:
+      l('error');
+  }
+};
+
+checkBaggage('some normal stuff and some explosives');
+checkBaggage('I have a laptop, some food and a pocket Knife');
+checkBaggage('Some snacks and a gun for protection');
+checkBaggage(' I have a bomb');
+checkBaggage('Socks and a camera');
+
+//______________________________________________________________________________________
+
+//______________________________________________________________________________________
+//.split()
+//.join()
+//______________________________________________________________________________________
+// const [fName, mName, lName] = 'wolfGang bIck berGin'.toLowerCase().split(' ');
+
+// const firstName = `${fName[0].toUpperCase()}${fName.slice('1')}`;
+// const middleName = `${mName[0].toUpperCase()}${mName.slice('1')}`;
+// const lastName = `${lName[0].toUpperCase()}${lName.slice('1')}`;
+
+// let fullName = ['Mr.', firstName, middleName, lastName].join(' ');
+// l(fullName);
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+// const [fName, mName, lName] = 'wolfGang bIck berGin'.toLowerCase().split(' ');
+
+// const firstName = [fName.split('')[0].toUpperCase(),  fName.slice(1)].join('');
+// l(firstName)
+
+// const middleName = `${mName[0].toUpperCase()}${mName.slice('1')}`;
+// const lastName = `${lName[0].toUpperCase()}${lName.slice('1')}`;
+
+// let fullName = ['Mr.', firstName, middleName, lastName].join(' ');
+//  l(fullName);
+//______________________________________________________________________________________
+
+// const wolfFunc12 = function (param1) {
+//   let newArr = ['Mr.'];
+//   const tempArr = param1.toLowerCase().split(' ');
+//   let tempStr = ``;
+//   for (const value of tempArr) {
+//     newArr.push(`${value.split('')[0].toUpperCase()}${value.slice(1)}`);
+//   }
+//   return newArr.join(' ');
+// };
+
+// l(wolfFunc12('wolfGang bIck berGin senIor'));
+//______________________________________________________________________________________
+//.replace(n[0], n[0].toUpperCase())
+//______________________________________________________________________________________
+// const wolfFunc12 = function (param1) {
+//   let newArr = ['Mr.'];
+//   const tempArr = param1.toLowerCase().split(' ');
+//   let tempStr = ``;
+//   for (const n of tempArr) {
+//     newArr.push(`${n.replace(n[0], n[0].toUpperCase())}`);
+//   }
+//   return newArr.join(' ');
+// };
+
+// l(wolfFunc12('wolfGang bIck berGin senIor'));
+//______________________________________________________________________________________
+//padding
+// .padStart(50, '*')
+// .padEnd(99, '!')
+//______________________________________________________________________________________
+// const message = `Go to gate 23!`
+// const fName = `wolf`
+// const temp1 = message.padStart(19, '*').padEnd(24, '#')
+// const temp2 = fName.padStart(19, '*').padEnd(24, '#')
+// l(temp1)
+// l(temp2)
+
+//______________________________________________________________________________________
+
+// const cardNumber1 = `4321 4322 4323 1234`
+// const cardNumber2 = `4321 432264323 1234`
+
+// const maskCreditCard = (number)=>{
+//   let length = number.length - 4
+
+//   const temp1 = number.split(' ')
+
+//   let temp2 = temp1.slice(-1)[0].padStart(length, 'X')
+
+//   l(temp2)
+
+// }
+// maskCreditCard(cardNumber1)
+// maskCreditCard(cardNumber2)
+//______________________________________________________________________________________
+// const cardNumber1 = `4321 4322 4323 3131`;
+// const cardNumber2 = `4321 432264323 7171`;
+
+// const maskCreditCard = (number) => {
+//   return (
+//     number
+//       .replaceAll(' ', '-')
+//       .replaceAll(/[0-9]/g, 'X')
+//       .slice(0, number.length - 4) + number.split(' ').slice(-1)[0]
+//   );
+// };
+// l(maskCreditCard(cardNumber1));
+// l(maskCreditCard(cardNumber2));
+
+//______________________________________________________________________________________
+
+// const cardNumber1 = 4321432243233131;
+// const cardNumber2 = '43214322643237171';
+
+// const maskCreditCard = (number) => {
+//   const string1 = number + ""
+
+//     let length = string1.length
+
+//   let temp2 = string1.slice(-4).padStart( length, 'X')
+
+//   return temp2;
+// };
+// l(maskCreditCard(cardNumber1));
+// l( maskCreditCard(cardNumber2));
+// l( maskCreditCard(`12345678`));
+//______________________________________________________________________________________
+//.repeat()
+//______________________________________________________________________________________
+//  const Announcement1 = ` The plane is about to crash!  The plane is about Crash and burn!`
+//  const Announcement2 = ` and burn!`.repeat(5,)
+//  const Announcement3 = Announcement1 + Announcement2
+
+//  l(Announcement1 + Announcement2)
+//______________________________________________________________________________________
+// const wolfFunc13 = function(n){
+//   l(` there are ${n} planes in line! ${':-('.repeat(n)}`)
+// };
+// wolfFunc13('60')
+//______________________________________________________________________________________
+//.concat()
+//______________________________________________________________________________________
+// const wolfMan = ' wolfMan'
+// const bergin = ' bergin'
+// const bick = 'bick'
+// l(bick.concat(wolfMan, bergin))
+
+//______________________________________________________________________________________
+
+const longString = `underscore_case
+      first_name
+Some_Variable              
+      calculate_AGE            
+delayed_departure`;
+
+const toCamalCase = function (param1) {
+  const temp10 = param1.split('\n');
+
+  for (const [index, word] of temp10.entries()) {
+    const [temp1, temp2] = word.trim().toLowerCase().split('_');
+
+    const temp3 = temp1 + temp2.replace(temp2[0], temp2[0].toUpperCase());
+
+    l(temp3.padEnd(20) + '😀'.repeat(index + 1));
+  }
+};
+
+toCamalCase(longString);
+//______________________________________________________________________________________
+
+const tempArr1 = ['w', 'o', 'l', 'f'];
+const tempArr2 = tempArr1.join('');
+l(tempArr2.replace(tempArr1[0], tempArr1[0].toUpperCase()));
+
+//______________________________________________________________________________________
+
+//______________________________________________________________________________________
+
+// String Methods Practice
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const wolfFunc15 = function (param1) {
+  let tempArr = param1.split('+');
+
+  for (const value of tempArr) {
+    
+    const temp11 = value.replaceAll('_', ' ').replaceAll(';', ' ');
+
+    let temp12 = `(${temp11.slice(-5).replaceAll(':', 'h')})`
+    
+ 
+    
+    const temp10 = temp11.slice(0, -5) + temp12
+
+
+   let temp13 =  temp10.includes('Delayed') &&  '😞 ' + temp10 || temp10;
+    
+let temp14 = temp13.padStart(55, ' ')
+ 
+const temp9 = temp14
+const temp8 = temp9.match(/[a-z]{3}\d+\s[a-z]{3}\d+/g)
+let temp6 = ''
+temp8.forEach((value)=>{
+   temp6 = value.toUpperCase().replaceAll(/\s/g, ' to ').replaceAll(/\d/g, '')
+
+})
+
+
+  
+ l(temp9.replaceAll(/[a-z]{3}\d+\s[a-z]{3}\d+/g, temp6));
+  }
+};
+wolfFunc15(flights);
+
