@@ -1819,3 +1819,68 @@ const wolfFunc15 = function (param1) {
 };
 wolfFunc15(flights);
 
+//______________________________________________________________________________________
+
+// String Methods Practice
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const wolfFunc15 = function (param1) {
+  let tempArr = param1.split('+');
+  const getCode = (param1) => param1.slice(0, 3).toUpperCase();
+
+  tempArr.forEach((value) => {
+    let [temp11, temp12, temp13, temp14] = value.split(';');
+
+    l(
+      `${temp11.startsWith('_Delayed') ? '🔴' : ''} ${temp11.replaceAll(
+        '_',
+        ' '
+      )} from ${getCode(temp12)} to ${getCode(temp13)} (${temp14.replaceAll(
+        ':',
+        'h'
+      )})`.padStart(45,)
+    );
+  });
+};
+wolfFunc15(flights);
+//______________________________________________________________________________________
+//______________________________________________________________________________________
+
+const kimFunc = function(){ 
+ 
+  return this.slice(0, 3).toUpperCase();
+  }
+Object.prototype.wolfFunc = kimFunc
+
+// String Methods Practice
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const wolfFunc15 = function (param1) {
+
+
+  const tempArr = param1.split('+');
+  tempArr.forEach((value) => {
+    const [temp1, temp2, temp3, temp4] = value.split(';');
+    l(
+      `${temp1.includes('Delayed') ? '🔴' : ''} ${temp1.replaceAll(
+        '_',
+        ' '
+      )} from ${temp2.wolfFunc()} to ${temp3.wolfFunc()} (${temp4.replaceAll(':', "h")}) `.padStart(65)
+    );
+  });
+};
+wolfFunc15(flights);

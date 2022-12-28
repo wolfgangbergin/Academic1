@@ -186,6 +186,12 @@ ADD_MOVIE_BUTTON_ELE.addEventListener('click', function testName() {
 RENDER_MOVIE_HANDLER(MOVIES);
 //______________________________________________________________________________________
 
+const kimFunc = function(param){ 
+ 
+  return this.slice(0, 3).toUpperCase();
+  }
+Object.prototype.wolfFunc = kimFunc
+
 // String Methods Practice
 
 const flights =
@@ -197,27 +203,17 @@ const flights =
 //            Departure from FAO to LIS (12h30)
 
 const wolfFunc15 = function (param1) {
-  let tempArr = param1.split('+');
-  const regex = /[a-z]{3}\d+\s[a-z]{3}\d+/g;
-  for (let value of tempArr) {
-    value = value.includes('Delayed') ? '😞 ' + value : value;
-    value =
-      value.replaceAll('_', ' ').replaceAll(';', ' ').slice(0, -5) +
-      `(${value.slice(-5).replaceAll(':', 'h')})`;
 
-    let [temp8] = value.match(regex);
 
+  const tempArr = param1.split('+');
+  tempArr.forEach((value) => {
+    const [temp1, temp2, temp3, temp4] = value.split(';');
     l(
-      value
-        .replaceAll(
-          regex,
-          `from ${temp8
-            .toUpperCase()
-            .replaceAll(/\s/g, ' to ')
-            .replaceAll(/\d/g, '')}`
-        )
-        .padStart(45, ' ')
+      `${temp1.includes('Delayed') ? '🔴' : ''} ${temp1.replaceAll(
+        '_',
+        ' '
+      )} from ${temp2.wolfFunc()} to ${temp3.wolfFunc()} (${temp4.replaceAll(':', "h")}) `.padStart(65)
     );
-  }
+  });
 };
 wolfFunc15(flights);

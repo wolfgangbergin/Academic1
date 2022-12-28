@@ -16,7 +16,7 @@ const flights =
 const wolfFunc15 = function (param1) {
   let tempArr = param1.split('+');
   const regex = /[a-z]{3}\d+\s[a-z]{3}\d+/g;
-  for (let value of tempArr) {
+  tempArr.forEach((value) => {
     value = value.includes('Delayed') ? '😞 ' + value : value;
     value =
       value.replaceAll('_', ' ').replaceAll(';', ' ').slice(0, -5) +
@@ -35,7 +35,7 @@ const wolfFunc15 = function (param1) {
         )
         .padStart(45, ' ')
     );
-  }
+  });
 };
 wolfFunc15(flights);
 
