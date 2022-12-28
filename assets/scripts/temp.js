@@ -1793,36 +1793,28 @@ const flights =
 //              Arrival from BRU to FAO (11h45)
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
-
 const wolfFunc15 = function (param1) {
   let tempArr = param1.split('+');
+  const regex = /[a-z]{3}\d+\s[a-z]{3}\d+/g;
+  for (let value of tempArr) {
+    value = value.includes('Delayed') ? '😞 ' + value : value;
+    value =
+      value.replaceAll('_', ' ').replaceAll(';', ' ').slice(0, -5) +
+      `(${value.slice(-5).replaceAll(':', 'h')})`;
 
-  for (const value of tempArr) {
-    
-    const temp11 = value.replaceAll('_', ' ').replaceAll(';', ' ');
+    let [temp8] = value.match(regex);
 
-    let temp12 = `(${temp11.slice(-5).replaceAll(':', 'h')})`
-    
- 
-    
-    const temp10 = temp11.slice(0, -5) + temp12
-
-
-   let temp13 =  temp10.includes('Delayed') &&  '😞 ' + temp10 || temp10;
-    
-let temp14 = temp13.padStart(55, ' ')
- 
-const temp9 = temp14
-const temp8 = temp9.match(/[a-z]{3}\d+\s[a-z]{3}\d+/g)
-let temp6 = ''
-temp8.forEach((value)=>{
-   temp6 = value.toUpperCase().replaceAll(/\s/g, ' to ').replaceAll(/\d/g, '')
-
-})
-
-
-  
- l(temp9.replaceAll(/[a-z]{3}\d+\s[a-z]{3}\d+/g, temp6));
+    l(
+      value
+        .replaceAll(
+          regex,
+          `from ${temp8
+            .toUpperCase()
+            .replaceAll(/\s/g, ' to ')
+            .replaceAll(/\d/g, '')}`
+        )
+        .padStart(45, ' ')
+    );
   }
 };
 wolfFunc15(flights);

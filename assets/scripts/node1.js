@@ -1,87 +1,41 @@
 'use strict';
-
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
-
+Object.prototype.l = console.log
+Object.prototype.d = console.dir
 //______________________________________________________________________________________
-let tempNumber = 0;
-const wolfFunc9 = function (param1) {
-  const characters1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  let tempArr = [];
+// String Methods Practice
 
-  for (let i = 0; i < param1; i++) {
-    let tempF = Math.floor(i / characters1.length);
-    tempArr.push(
-      `Seat: ${characters1.charAt(tempF)}${characters1.charAt(i - 26 * tempF)}`
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const wolfFunc15 = function (param1) {
+  let tempArr = param1.split('+');
+  const regex = /[a-z]{3}\d+\s[a-z]{3}\d+/g;
+  for (let value of tempArr) {
+    value = value.includes('Delayed') ? '😞 ' + value : value;
+    value =
+      value.replaceAll('_', ' ').replaceAll(';', ' ').slice(0, -5) +
+      `(${value.slice(-5).replaceAll(':', 'h')})`;
+
+    let [temp8] = value.match(regex);
+
+    l(
+      value
+        .replaceAll(
+          regex,
+          `from ${temp8
+            .toUpperCase()
+            .replaceAll(/\s/g, ' to ')
+            .replaceAll(/\d/g, '')}`
+        )
+        .padStart(45, ' ')
     );
   }
-
-  return tempArr;
 };
+wolfFunc15(flights);
 
-const airPlaneSeats = wolfFunc9(56);
-
-//for (const [key ,Seat ]of airPlaneSeats.entries()) l(key, Seat);
-
-const isWindowSeat = (seat, airPlane) => {
-  let index = airPlane.indexOf(seat);
-  let formula = index ;
-  switch (formula) {
-    case 0:
-      l(`${seat} is a left side window seat! `);
-      break;
-      case 1:
-      l(`${seat} is a left side aisle seat! `);
-      break;
-      case 2:
-      l(`${seat} is a right side aisle seat! `);
-      break;
-    case 3:
-      l(`${seat} is a right side window seat! `);
-      break;
-  }
-};
-
-isWindowSeat(`Seat: AA`, airPlaneSeats);
-isWindowSeat(`Seat: AB`, airPlaneSeats);
-isWindowSeat(`Seat: AC`, airPlaneSeats);
-isWindowSeat(`Seat: AD`, airPlaneSeats);

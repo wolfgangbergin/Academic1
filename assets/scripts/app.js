@@ -198,22 +198,26 @@ const flights =
 
 const wolfFunc15 = function (param1) {
   let tempArr = param1.split('+');
-
+  const regex = /[a-z]{3}\d+\s[a-z]{3}\d+/g;
   for (let value of tempArr) {
+    value = value.includes('Delayed') ? '😞 ' + value : value;
+    value =
+      value.replaceAll('_', ' ').replaceAll(';', ' ').slice(0, -5) +
+      `(${value.slice(-5).replaceAll(':', 'h')})`;
 
-    value = value.replaceAll('_', ' ').replaceAll(';', ' ').replaceAll(':', 'h');
+    let [temp8] = value.match(regex);
 
-    let temp12 = `(${value.slice(-5)})`;
-
-    const temp10 = value.slice(0, -5) + temp12;
-
-    let temp9 = (temp10.includes('Delayed') && '😞 ' + temp10) || temp10;
-
-    let [temp8] = temp9.match(/[a-z]{3}\d+\s[a-z]{3}\d+/g);
-
-    temp8 = temp8.toUpperCase().replaceAll(/\s/g, ' to ').replaceAll(/\d/g, '');
-
-    l(temp9.replaceAll(/[a-z]{3}\d+\s[a-z]{3}\d+/g, temp8).padStart(45, ' '));
+    l(
+      value
+        .replaceAll(
+          regex,
+          `from ${temp8
+            .toUpperCase()
+            .replaceAll(/\s/g, ' to ')
+            .replaceAll(/\d/g, '')}`
+        )
+        .padStart(45, ' ')
+    );
   }
 };
 wolfFunc15(flights);
